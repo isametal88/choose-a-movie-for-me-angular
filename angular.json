@@ -104,7 +104,8 @@
       "displayBlock": true,
       "style": "css",
       "prefix": "cam",
-      "skipTests": true
+      "skipTests": true,
+      "inlineTemplate": true
     },
     "@schematics/angular:directive": {
       "type": "directive"

@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^20.1.7",
     "@angular/platform-browser-dynamic": "^20.1.7",
     "@angular/router": "^20.1.7",
-    "choose-a-movie-for-me-ds": "^0.0.1",
+    "choose-a-movie-for-me-ds": "^0.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

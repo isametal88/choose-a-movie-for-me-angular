@@ -1,5 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import 'choose-a-movie-for-me-ds/template';
 
 @Component({
   selector: 'app-root',
