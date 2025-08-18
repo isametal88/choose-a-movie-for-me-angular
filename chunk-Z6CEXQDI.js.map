@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/find/find.component.ts"],
+  "sourcesContent": ["import { ChangeDetectionStrategy, Component } from '@angular/core';\n\n@Component({\n  selector: 'app-find',\n  imports: [],\n  template: `<p>find works!</p>`,\n  styleUrl: './find.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class FindComponent { }\n"],
+  "mappings": ";;;;;;;;;;;;;AASM,IAAO,gBAAP,MAAO,eAAa;;qCAAb,gBAAa;EAAA;yEAAb,gBAAa,WAAA,CAAA,CAAA,UAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,UAAA,SAAA,uBAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;AAJb,MAAA,4BAAA,GAAA,GAAA;AAAG,MAAA,iBAAA,GAAA,aAAA;AAAW,MAAA,0BAAA;;;;;sEAId,eAAa,CAAA;UAPzB;uBACW,YAAU,SACX,CAAA,GAAE,UACD,sBAAoB,iBAEb,wBAAwB,QAAM,QAAA,CAAA,8HAAA,EAAA,CAAA;;;;6EAEpC,eAAa,EAAA,WAAA,iBAAA,UAAA,wCAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
+  "names": []
+}

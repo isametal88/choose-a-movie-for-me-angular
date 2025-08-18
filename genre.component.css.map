@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/services/genre/genre.component.css"],
+  "sourcesContent": [":host {\n  display: block;\n}\n"],
+  "mappings": ";AAAA;AACE,WAAS;AACX;",
+  "names": []
+}

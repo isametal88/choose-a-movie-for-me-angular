@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": [],
-  "sourcesContent": [],
-  "mappings": "",
+  "sources": ["src/styles.css"],
+  "sourcesContent": ["/* You can add global styles to this file, and also import other style files */\nhtml,\nbody {\n    padding: 0;\n    margin: 0;\n}\n\n.space-around-vertical {\n    display: flex;\n    height: 100%;\n    flex-direction: column;\n    justify-content: space-around;\n}"],
+  "mappings": ";AACA;AACA;AACI,WAAS;AACT,UAAQ;AACZ;AAEA,CAAC;AACG,WAAS;AACT,UAAQ;AACR,kBAAgB;AAChB,mBAAiB;AACrB;",
   "names": []
 }

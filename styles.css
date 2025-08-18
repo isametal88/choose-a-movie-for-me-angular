@@ -1,3 +1,15 @@
 /* src/styles.css */
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+.space-around-vertical {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 /* angular:styles/global:styles */
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/services/genre/genre.component.ts"],
+  "sourcesContent": ["import { ChangeDetectionStrategy, Component } from '@angular/core';\n\n@Component({\n  selector: 'app-genre',\n  imports: [],\n  template: `<p>genre works!</p>`,\n  styleUrl: './genre.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class GenreComponent { }\n"],
+  "mappings": ";;;;;;;;;;;;;AASM,IAAO,iBAAP,MAAO,gBAAc;;qCAAd,iBAAc;EAAA;yEAAd,iBAAc,WAAA,CAAA,CAAA,WAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,UAAA,SAAA,wBAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;AAJd,MAAA,4BAAA,GAAA,GAAA;AAAG,MAAA,iBAAA,GAAA,cAAA;AAAY,MAAA,0BAAA;;;;;sEAIf,gBAAc,CAAA;UAP1B;uBACW,aAAW,SACZ,CAAA,GAAE,UACD,uBAAqB,iBAEd,wBAAwB,QAAM,QAAA,CAAA,8LAAA,EAAA,CAAA;;;;6EAEpC,gBAAc,EAAA,WAAA,kBAAA,UAAA,uGAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
+  "names": []
+}

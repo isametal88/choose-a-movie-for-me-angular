@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/suggestion/suggestion-movie/suggestion-movie-surprise-me/suggestion-movie-surprise-me.routes.ts"],
+  "sourcesContent": ["import { Routes } from '@angular/router';\n\nexport const routes: Routes = [\n    {\n        path: '',\n        loadComponent: () => import('./suggestion-movie-surprise-me.component').then(m => m.SuggestionMovieSurpriseMeComponent),\n        children: []\n    }\n];\n"],
+  "mappings": ";;;AAEO,IAAM,SAAiB;EAC1B;IACI,MAAM;IACN,eAAe,MAAM,OAAO,qBAA0C,EAAE,KAAK,OAAK,EAAE,kCAAkC;IACtH,UAAU,CAAA;;;",
+  "names": []
+}

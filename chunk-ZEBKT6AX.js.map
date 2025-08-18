@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/suggestion/suggestion-movie/suggestion-movie.component.ts"],
+  "sourcesContent": ["import { ChangeDetectionStrategy, Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\n\n@Component({\n  selector: 'app-suggestion-movie',\n  imports: [RouterOutlet],\n  template: `<router-outlet/>`,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SuggestionMovieComponent { }\n"],
+  "mappings": ";;;;;;;;;;;;;;AASM,IAAO,2BAAP,MAAO,0BAAwB;;qCAAxB,2BAAwB;EAAA;yEAAxB,2BAAwB,WAAA,CAAA,CAAA,sBAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,UAAA,SAAA,kCAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;AAHxB,MAAA,oBAAA,GAAA,eAAA;;oBADD,YAAY,GAAA,eAAA,GAAA,iBAAA,EAAA,CAAA;;;sEAIX,0BAAwB,CAAA;UANpC;WAAU;MACT,UAAU;MACV,SAAS,CAAC,YAAY;MACtB,UAAU;MACV,iBAAiB,wBAAwB;KAC1C;;;;6EACY,0BAAwB,EAAA,WAAA,4BAAA,UAAA,2EAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
+  "names": []
+}

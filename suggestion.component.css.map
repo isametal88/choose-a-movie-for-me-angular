@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;99502bec7254762522077df9b7500bdf21cd97d9197b028da20552963b5cdde3;/home/runner/work/choose-a-movie-for-me-angular/choose-a-movie-for-me-angular/src/app/pages/suggestion/suggestion.component.ts"],
+  "sourcesContent": ["::host {\n   height: 100%;\n  }"],
+  "mappings": ";AAAA;AACG,UAAQ;AACT;",
+  "names": []
+}
