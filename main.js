@@ -17,26 +17,6 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
 
 // node_modules/@angular/core/fesm2022/not_found.mjs
 var _currentInjector = void 0;
@@ -16094,65 +16074,59 @@ function triggerDeferBlock(triggerType, lView, tNode) {
       }
   }
 }
-function triggerHydrationFromBlockName(injector, blockName, replayQueuedEventsFn) {
-  return __async(this, null, function* () {
-    const dehydratedBlockRegistry = injector.get(DEHYDRATED_BLOCK_REGISTRY);
-    const blocksBeingHydrated = dehydratedBlockRegistry.hydrating;
-    if (blocksBeingHydrated.has(blockName)) {
-      return;
-    }
-    const { parentBlockPromise, hydrationQueue } = getParentBlockHydrationQueue(blockName, injector);
-    if (hydrationQueue.length === 0)
-      return;
-    if (parentBlockPromise !== null) {
-      hydrationQueue.shift();
-    }
-    populateHydratingStateForQueue(dehydratedBlockRegistry, hydrationQueue);
-    if (parentBlockPromise !== null) {
-      yield parentBlockPromise;
-    }
-    const topmostParentBlock = hydrationQueue[0];
-    if (dehydratedBlockRegistry.has(topmostParentBlock)) {
-      yield triggerHydrationForBlockQueue(injector, hydrationQueue, replayQueuedEventsFn);
-    } else {
-      dehydratedBlockRegistry.awaitParentBlock(topmostParentBlock, () => __async(null, null, function* () {
-        return yield triggerHydrationForBlockQueue(injector, hydrationQueue, replayQueuedEventsFn);
-      }));
-    }
-  });
+async function triggerHydrationFromBlockName(injector, blockName, replayQueuedEventsFn) {
+  const dehydratedBlockRegistry = injector.get(DEHYDRATED_BLOCK_REGISTRY);
+  const blocksBeingHydrated = dehydratedBlockRegistry.hydrating;
+  if (blocksBeingHydrated.has(blockName)) {
+    return;
+  }
+  const { parentBlockPromise, hydrationQueue } = getParentBlockHydrationQueue(blockName, injector);
+  if (hydrationQueue.length === 0)
+    return;
+  if (parentBlockPromise !== null) {
+    hydrationQueue.shift();
+  }
+  populateHydratingStateForQueue(dehydratedBlockRegistry, hydrationQueue);
+  if (parentBlockPromise !== null) {
+    await parentBlockPromise;
+  }
+  const topmostParentBlock = hydrationQueue[0];
+  if (dehydratedBlockRegistry.has(topmostParentBlock)) {
+    await triggerHydrationForBlockQueue(injector, hydrationQueue, replayQueuedEventsFn);
+  } else {
+    dehydratedBlockRegistry.awaitParentBlock(topmostParentBlock, async () => await triggerHydrationForBlockQueue(injector, hydrationQueue, replayQueuedEventsFn));
+  }
 }
-function triggerHydrationForBlockQueue(injector, hydrationQueue, replayQueuedEventsFn) {
-  return __async(this, null, function* () {
-    const dehydratedBlockRegistry = injector.get(DEHYDRATED_BLOCK_REGISTRY);
-    const blocksBeingHydrated = dehydratedBlockRegistry.hydrating;
-    const pendingTasks = injector.get(PendingTasksInternal);
-    const taskId = pendingTasks.add();
-    for (let blockQueueIdx = 0; blockQueueIdx < hydrationQueue.length; blockQueueIdx++) {
-      const dehydratedBlockId = hydrationQueue[blockQueueIdx];
-      const dehydratedDeferBlock = dehydratedBlockRegistry.get(dehydratedBlockId);
-      if (dehydratedDeferBlock != null) {
-        yield triggerResourceLoadingForHydration(dehydratedDeferBlock);
-        yield nextRender(injector);
-        if (deferBlockHasErrored(dehydratedDeferBlock)) {
-          removeDehydratedViewList(dehydratedDeferBlock);
-          cleanupRemainingHydrationQueue(hydrationQueue.slice(blockQueueIdx), dehydratedBlockRegistry);
-          break;
-        }
-        blocksBeingHydrated.get(dehydratedBlockId).resolve();
-      } else {
-        cleanupParentContainer(blockQueueIdx, hydrationQueue, dehydratedBlockRegistry);
+async function triggerHydrationForBlockQueue(injector, hydrationQueue, replayQueuedEventsFn) {
+  const dehydratedBlockRegistry = injector.get(DEHYDRATED_BLOCK_REGISTRY);
+  const blocksBeingHydrated = dehydratedBlockRegistry.hydrating;
+  const pendingTasks = injector.get(PendingTasksInternal);
+  const taskId = pendingTasks.add();
+  for (let blockQueueIdx = 0; blockQueueIdx < hydrationQueue.length; blockQueueIdx++) {
+    const dehydratedBlockId = hydrationQueue[blockQueueIdx];
+    const dehydratedDeferBlock = dehydratedBlockRegistry.get(dehydratedBlockId);
+    if (dehydratedDeferBlock != null) {
+      await triggerResourceLoadingForHydration(dehydratedDeferBlock);
+      await nextRender(injector);
+      if (deferBlockHasErrored(dehydratedDeferBlock)) {
+        removeDehydratedViewList(dehydratedDeferBlock);
         cleanupRemainingHydrationQueue(hydrationQueue.slice(blockQueueIdx), dehydratedBlockRegistry);
         break;
       }
+      blocksBeingHydrated.get(dehydratedBlockId).resolve();
+    } else {
+      cleanupParentContainer(blockQueueIdx, hydrationQueue, dehydratedBlockRegistry);
+      cleanupRemainingHydrationQueue(hydrationQueue.slice(blockQueueIdx), dehydratedBlockRegistry);
+      break;
     }
-    const lastBlockName = hydrationQueue[hydrationQueue.length - 1];
-    yield blocksBeingHydrated.get(lastBlockName)?.promise;
-    pendingTasks.remove(taskId);
-    if (replayQueuedEventsFn) {
-      replayQueuedEventsFn(hydrationQueue);
-    }
-    cleanupHydratedDeferBlocks(dehydratedBlockRegistry.get(lastBlockName), hydrationQueue, dehydratedBlockRegistry, injector.get(ApplicationRef));
-  });
+  }
+  const lastBlockName = hydrationQueue[hydrationQueue.length - 1];
+  await blocksBeingHydrated.get(lastBlockName)?.promise;
+  pendingTasks.remove(taskId);
+  if (replayQueuedEventsFn) {
+    replayQueuedEventsFn(hydrationQueue);
+  }
+  cleanupHydratedDeferBlocks(dehydratedBlockRegistry.get(lastBlockName), hydrationQueue, dehydratedBlockRegistry, injector.get(ApplicationRef));
 }
 function deferBlockHasErrored(deferBlock) {
   return getLDeferBlockDetails(deferBlock.lView, deferBlock.tNode)[DEFER_BLOCK_STATE] === DeferBlockState.Error;
@@ -16179,14 +16153,12 @@ function populateHydratingStateForQueue(registry, queue) {
 function nextRender(injector) {
   return new Promise((resolveFn) => afterNextRender(resolveFn, { injector }));
 }
-function triggerResourceLoadingForHydration(dehydratedBlock) {
-  return __async(this, null, function* () {
-    const { tNode, lView } = dehydratedBlock;
-    const lDetails = getLDeferBlockDetails(lView, tNode);
-    return new Promise((resolve) => {
-      onDeferBlockCompletion(lDetails, resolve);
-      triggerDeferBlock(2, lView, tNode);
-    });
+async function triggerResourceLoadingForHydration(dehydratedBlock) {
+  const { tNode, lView } = dehydratedBlock;
+  const lDetails = getLDeferBlockDetails(lView, tNode);
+  return new Promise((resolve) => {
+    onDeferBlockCompletion(lDetails, resolve);
+    triggerDeferBlock(2, lView, tNode);
   });
 }
 function onDeferBlockCompletion(lDetails, callback) {
@@ -28165,18 +28137,16 @@ function assertNoLoaderParamsWithoutLoader(dir, imageLoader) {
     console.warn(formatRuntimeError(2963, `${imgDirectiveDetails(dir.ngSrc)} the \`loaderParams\` attribute is present but no image loader is configured (i.e. the default one is being used), which means that the loaderParams data will not be consumed and will not affect the URL. To fix this, provide a custom loader or remove the \`loaderParams\` attribute from the image.`));
   }
 }
-function assetPriorityCountBelowThreshold(appRef) {
-  return __async(this, null, function* () {
-    if (IMGS_WITH_PRIORITY_ATTR_COUNT === 0) {
-      IMGS_WITH_PRIORITY_ATTR_COUNT++;
-      yield appRef.whenStable();
-      if (IMGS_WITH_PRIORITY_ATTR_COUNT > PRIORITY_COUNT_THRESHOLD) {
-        console.warn(formatRuntimeError(2966, `NgOptimizedImage: The "priority" attribute is set to true more than ${PRIORITY_COUNT_THRESHOLD} times (${IMGS_WITH_PRIORITY_ATTR_COUNT} times). Marking too many images as "high" priority can hurt your application's LCP (https://web.dev/lcp). "Priority" should only be set on the image expected to be the page's LCP element.`));
-      }
-    } else {
-      IMGS_WITH_PRIORITY_ATTR_COUNT++;
+async function assetPriorityCountBelowThreshold(appRef) {
+  if (IMGS_WITH_PRIORITY_ATTR_COUNT === 0) {
+    IMGS_WITH_PRIORITY_ATTR_COUNT++;
+    await appRef.whenStable();
+    if (IMGS_WITH_PRIORITY_ATTR_COUNT > PRIORITY_COUNT_THRESHOLD) {
+      console.warn(formatRuntimeError(2966, `NgOptimizedImage: The "priority" attribute is set to true more than ${PRIORITY_COUNT_THRESHOLD} times (${IMGS_WITH_PRIORITY_ATTR_COUNT} times). Marking too many images as "high" priority can hurt your application's LCP (https://web.dev/lcp). "Priority" should only be set on the image expected to be the page's LCP element.`));
     }
-  });
+  } else {
+    IMGS_WITH_PRIORITY_ATTR_COUNT++;
+  }
 }
 function assertPlaceholderDimensions(dir, imgElement) {
   const computedStyle = window.getComputedStyle(imgElement);
@@ -35356,8 +35326,8 @@ var RouterScroller = class _RouterScroller {
     });
   }
   scheduleScrollEvent(routerEvent, anchor) {
-    this.zone.runOutsideAngular(() => __async(this, null, function* () {
-      yield new Promise((resolve) => {
+    this.zone.runOutsideAngular(async () => {
+      await new Promise((resolve) => {
         setTimeout(resolve);
         if (typeof requestAnimationFrame !== "undefined") {
           requestAnimationFrame(resolve);
@@ -35366,7 +35336,7 @@ var RouterScroller = class _RouterScroller {
       this.zone.run(() => {
         this.transitions.events.next(new Scroll(routerEvent, this.lastSource === "popstate" ? this.store[this.restoredId] : null, anchor));
       });
-    }));
+    });
   }
   /** @docs-private */
   ngOnDestroy() {
