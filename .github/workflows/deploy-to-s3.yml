@@ -32,13 +32,13 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync build to S3
+    - name: Sync build to S3
         env:
           S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
-          # Path from angular.json: dist/choose-a-movie-for-me-angular
-          BUILD_DIR="dist/choose-a-movie-for-me-angular"
+      # Path from angular.json: dist/choose-a-movie-for-me-angular/browser
+      BUILD_DIR="dist/choose-a-movie-for-me-angular/browser"
           if [ ! -d "$BUILD_DIR" ]; then
             echo "Build output not found: $BUILD_DIR"
             exit 1
@@ -47,6 +47,10 @@ jobs:
             --region "$AWS_REGION" \
             --delete \
             --exact-timestamps
+
+      # Configure the bucket as a static website so SPA routes resolve to index.html
+      # This sets index and error document to index.html (SPA fallback).
+      aws s3 website "s3://$S3_BUCKET" --index-document index.html --error-document index.html || true
 
 #      - name: Optional: CloudFront invalidation
 #        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
