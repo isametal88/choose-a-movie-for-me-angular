@@ -45,7 +45,6 @@ jobs:
           fi
           aws s3 sync "$BUILD_DIR" "s3://$S3_BUCKET" \
             --region "$AWS_REGION" \
-            --acl public-read \
             --delete \
             --exact-timestamps
 
