@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/services/genre/genre.component.ts"],
+  "sourcesContent": ["import { ChangeDetectionStrategy, Component } from '@angular/core';\nimport 'choose-a-movie-for-me-ds/typography-heading';\n\n@Component({\n  selector: 'app-genre',\n  imports: [],\n  template: `<h1 cam-ds-typography-heading level=1>Choose a Genre</h1>`,\n  styleUrl: './genre.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class GenreComponent { }\n"],
+  "mappings": ";;;;;;;;;;;;;;AAUM,IAAO,iBAAP,MAAO,gBAAc;;qCAAd,iBAAc;EAAA;yEAAd,iBAAc,WAAA,CAAA,CAAA,WAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,QAAA,CAAA,CAAA,6BAAA,IAAA,SAAA,GAAA,CAAA,GAAA,UAAA,SAAA,wBAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;AAJd,MAAA,4BAAA,GAAA,MAAA,CAAA;AAAsC,MAAA,iBAAA,GAAA,gBAAA;AAAc,MAAA,0BAAA;;;;;sEAIpD,gBAAc,CAAA;UAP1B;uBACW,aAAW,SACZ,CAAA,GAAE,UACD,6DAA2D,iBAEpD,wBAAwB,QAAM,QAAA,CAAA,8LAAA,EAAA,CAAA;;;;6EAEpC,gBAAc,EAAA,WAAA,kBAAA,UAAA,uGAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
+  "names": []
+}

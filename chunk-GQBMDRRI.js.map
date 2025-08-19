@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/pages/suggestion/suggestion-movie/suggestion-movie.routes.ts"],
-  "sourcesContent": ["import { Routes } from '@angular/router';\n\nexport const routes: Routes = [\n    {\n        path: '',\n        loadComponent: () => import('./suggestion-movie.component').then(m => m.SuggestionMovieComponent),\n        children: [\n            {\n                path: '',\n                pathMatch: 'full',\n                loadComponent: () => import('./suggestion-movie-mode/suggestion-movie-mode.component').then(m => m.SuggestionMovieModeComponent),\n            },\n            {\n                path: 'surprise-me',\n                loadChildren: () => import('./suggestion-movie-surprise-me/suggestion-movie-surprise-me.routes').then(m => m.routes),\n            },\n            {\n                path: 'ask-me',\n                loadChildren: () => import('./suggestion-movie-ask-me/suggestion-movie-ask-me.routes').then(m => m.routes),\n            }\n        ]\n\n    }\n];\n"],
-  "mappings": ";;;AAEO,IAAM,SAAiB;EAC1B;IACI,MAAM;IACN,eAAe,MAAM,OAAO,qBAA8B,EAAE,KAAK,OAAK,EAAE,wBAAwB;IAChG,UAAU;MACN;QACI,MAAM;QACN,WAAW;QACX,eAAe,MAAM,OAAO,qBAAyD,EAAE,KAAK,OAAK,EAAE,4BAA4B;;MAEnI;QACI,MAAM;QACN,cAAc,MAAM,OAAO,qBAAoE,EAAE,KAAK,OAAK,EAAE,MAAM;;MAEvH;QACI,MAAM;QACN,cAAc,MAAM,OAAO,qBAA0D,EAAE,KAAK,OAAK,EAAE,MAAM;;;;;",
-  "names": []
-}

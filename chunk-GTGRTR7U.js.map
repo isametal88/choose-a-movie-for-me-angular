@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/services/services.component.ts"],
-  "sourcesContent": ["import { ChangeDetectionStrategy, Component } from '@angular/core';\nimport { RouterLink } from '@angular/router';\n\n@Component({\n  selector: 'app-services',\n  imports: [RouterLink],\n  template: `<p routerLink=\"genre\">services works!</p>`,\n  styleUrl: './services.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ServicesComponent { }\n"],
-  "mappings": ";;;;;;;;;;;;;;;;AAUM,IAAO,oBAAP,MAAO,mBAAiB;;qCAAjB,oBAAiB;EAAA;yEAAjB,oBAAiB,WAAA,CAAA,CAAA,cAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,QAAA,CAAA,CAAA,cAAA,OAAA,CAAA,GAAA,UAAA,SAAA,2BAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;AAJjB,MAAA,yBAAA,GAAA,KAAA,CAAA;AAAsB,MAAA,iBAAA,GAAA,iBAAA;AAAe,MAAA,uBAAA;;oBADtC,UAAU,GAAA,QAAA,CAAA,kGAAA,GAAA,iBAAA,EAAA,CAAA;;;sEAKT,mBAAiB,CAAA;UAP7B;uBACW,gBAAc,SACf,CAAC,UAAU,GAAC,UACX,6CAA2C,iBAEpC,wBAAwB,QAAM,QAAA,CAAA,8LAAA,EAAA,CAAA;;;;6EAEpC,mBAAiB,EAAA,WAAA,qBAAA,UAAA,oGAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
-  "names": []
-}

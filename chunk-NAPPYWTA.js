@@ -7,7 +7,7 @@ var routes = [
     children: [
       {
         path: "services",
-        loadChildren: () => import("./chunk-3LEBJYYJ.js").then((m) => m.routes)
+        loadChildren: () => import("./chunk-4BD6YMEY.js").then((m) => m.routes)
       },
       {
         path: "**",
@@ -19,4 +19,4 @@ var routes = [
 export {
   routes
 };
-//# sourceMappingURL=chunk-RAMXX7QT.js.map
+//# sourceMappingURL=chunk-NAPPYWTA.js.map

@@ -2,7 +2,8 @@ import {
   RouterOutlet,
   bootstrapApplication,
   provideRouter
-} from "./chunk-UILARDYF.js";
+} from "./chunk-D5PSDVCX.js";
+import "./chunk-RAA3JLT6.js";
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
@@ -13,7 +14,7 @@ import {
   ɵɵelement,
   ɵɵelementEnd,
   ɵɵelementStart
-} from "./chunk-5GGIGRC6.js";
+} from "./chunk-CKIRYVSM.js";
 import "./chunk-VUJOFXKG.js";
 
 // src/app/app.routes.ts
@@ -21,16 +22,16 @@ var routes = [
   {
     path: "",
     pathMatch: "full",
-    loadComponent: () => import("./chunk-MN6XM6AH.js").then((m) => m.ModeComponent)
+    loadComponent: () => import("./chunk-DPVJNGMW.js").then((m) => m.ModeComponent)
   },
   {
     path: "suggestion",
-    loadChildren: () => import("./chunk-CLHPNYBK.js").then((m) => m.routes)
+    loadChildren: () => import("./chunk-DWP3QSTQ.js").then((m) => m.routes)
   },
   {
     path: "find",
     pathMatch: "full",
-    loadComponent: () => import("./chunk-Z6CEXQDI.js").then((m) => m.FindComponent)
+    loadComponent: () => import("./chunk-2LUHC4HF.js").then((m) => m.FindComponent)
   }
 ];
 

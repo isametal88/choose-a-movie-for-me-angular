@@ -21513,6 +21513,14 @@ var OutputEmitterRef = class {
 function untracked2(nonReactiveReadsFn) {
   return untracked(nonReactiveReadsFn);
 }
+function computed(computation, options) {
+  const getter = createComputed(computation, options?.equal);
+  if (ngDevMode) {
+    getter.toString = () => `[Computed: ${getter()}]`;
+    getter[SIGNAL].debugName = options?.debugName;
+  }
+  return getter;
+}
 var EffectRefImpl = class {
   [SIGNAL];
   constructor(node) {
@@ -23308,6 +23316,8 @@ export {
   INJECTOR_SCOPE,
   EnvironmentInjector,
   runInInjectionContext,
+  ɵɵrestoreView,
+  ɵɵresetView,
   Injector,
   DOCUMENT,
   DestroyRef,
@@ -23380,21 +23390,28 @@ export {
   APP_BOOTSTRAP_LISTENER,
   ApplicationRef,
   ɵɵattribute,
+  ɵɵrepeaterCreate,
+  ɵɵrepeater,
   ɵɵproperty,
   ɵɵelementStart,
   ɵɵelementEnd,
   ɵɵelement,
   ɵɵdomElementStart,
   ɵɵdomElementEnd,
+  ɵɵdomElement,
+  ɵɵgetCurrentView,
   findLocaleData,
   getLocalePluralCase,
   LocaleDataIndex,
   ɵɵlistener,
+  ɵɵdomListener,
+  ɵɵnextContext,
   ɵɵcontentQuery,
   ɵɵqueryRefresh,
   ɵɵloadQuery,
   ɵɵstyleProp,
   ɵɵtext,
+  ɵɵtextInterpolate1,
   ɵɵpureFunction0,
   ɵsetClassDebugInfo,
   Directive,
@@ -23410,6 +23427,7 @@ export {
   LOCALE_ID,
   DEFAULT_CURRENCY_CODE,
   untracked2 as untracked,
+  computed,
   HostAttributeToken,
   input,
   ContentChildren,
@@ -23460,4 +23478,4 @@ export {
    * found in the LICENSE file at https://angular.dev/license
    *)
 */
-//# sourceMappingURL=chunk-5GGIGRC6.js.map
+//# sourceMappingURL=chunk-CKIRYVSM.js.map

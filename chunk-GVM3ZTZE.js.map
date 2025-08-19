@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/pages/suggestion/suggestion.component.ts"],
-  "sourcesContent": ["import { ChangeDetectionStrategy, Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\n\n@Component({\n  selector: 'app-suggestion',\n  imports: [RouterOutlet],\n  template: `<router-outlet/>`,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  styles: `::host {\n   height: 100%;\n  }`,\n\n})\nexport class SuggestionComponent { }\n"],
-  "mappings": ";;;;;;;;;;;;;;AAaM,IAAO,sBAAP,MAAO,qBAAmB;;qCAAnB,sBAAmB;EAAA;yEAAnB,sBAAmB,WAAA,CAAA,CAAA,gBAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,UAAA,SAAA,6BAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;AAPnB,MAAA,oBAAA,GAAA,eAAA;;oBADD,YAAY,GAAA,QAAA,CAAA,mGAAA,GAAA,iBAAA,EAAA,CAAA;;;sEAQX,qBAAmB,CAAA;UAV/B;uBACW,kBAAgB,SACjB,CAAC,YAAY,GAAC,UACb,oBAAkB,iBACX,wBAAwB,QAAM,QAAA,CAAA,0TAAA,EAAA,CAAA;;;;6EAMpC,qBAAmB,EAAA,WAAA,uBAAA,UAAA,oDAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
-  "names": []
-}

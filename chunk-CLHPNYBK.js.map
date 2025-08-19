@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/pages/suggestion/suggestion.routes.ts"],
-  "sourcesContent": ["import { Routes } from '@angular/router';\n\nexport const routes: Routes = [\n    {\n        path: '',\n        loadComponent: () => import('./suggestion.component').then(m => m.SuggestionComponent),\n        children: [\n            {\n                path: '',\n                pathMatch: 'full',\n                loadComponent: () => import('./suggestion-media/suggestion-media.component').then(m => m.SuggestionMediaComponent),\n            },\n            {\n                path: 'movie',\n                //pathMatch: 'full',\n                loadChildren: () => import('./suggestion-movie/suggestion-movie.routes').then(m => m.routes),\n            },\n            /* {\n                path: 'tv-show',\n                pathMatch: 'full',\n                loadChildren: () => import('./suggestion-tv-show/suggestion-tv-show.routes').then(m => m.routes),\n            } */\n        ]\n\n    }\n];\n"],
-  "mappings": ";;;AAEO,IAAM,SAAiB;EAC1B;IACI,MAAM;IACN,eAAe,MAAM,OAAO,qBAAwB,EAAE,KAAK,OAAK,EAAE,mBAAmB;IACrF,UAAU;MACN;QACI,MAAM;QACN,WAAW;QACX,eAAe,MAAM,OAAO,qBAA+C,EAAE,KAAK,OAAK,EAAE,wBAAwB;;MAErH;QACI,MAAM;;QAEN,cAAc,MAAM,OAAO,qBAA4C,EAAE,KAAK,OAAK,EAAE,MAAM;;;;;;;;;;",
-  "names": []
-}
