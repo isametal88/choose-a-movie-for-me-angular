@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        loadComponent: () => import('./suggestion-movie.component').then(m => m.SuggestionMovieComponent),
         children: [
             {
                 path: '',
@@ -17,6 +16,10 @@ export const routes: Routes = [
             {
                 path: 'ask-me',
                 loadChildren: () => import('./suggestion-movie-ask-me/suggestion-movie-ask-me.routes').then(m => m.routes),
+            },
+            {
+                path: '**',
+                redirectTo: ''
             }
         ]
 
