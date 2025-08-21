@@ -16,4 +16,8 @@ export const routes: Routes = [
         pathMatch: 'full',
         loadComponent: () => import('./pages/find/find.component').then(m => m.FindComponent),
     },
+    {
+        path: 'movie',
+        loadChildren: () => import('./pages/movie/movie.routes').then(m => m.routes),
+    },
 ];
