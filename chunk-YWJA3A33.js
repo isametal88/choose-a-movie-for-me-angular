@@ -1,0 +1,394 @@
+import "./chunk-OOCSKCZK.js";
+import "./chunk-6V7WYHJC.js";
+import {
+  CommonModule
+} from "./chunk-DNPXSVUU.js";
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  setClassMetadata,
+  signal,
+  ɵsetClassDebugInfo,
+  ɵɵadvance,
+  ɵɵattribute,
+  ɵɵdefineComponent,
+  ɵɵdomElement,
+  ɵɵdomElementEnd,
+  ɵɵdomElementStart,
+  ɵɵdomListener,
+  ɵɵgetCurrentView,
+  ɵɵnextContext,
+  ɵɵrepeater,
+  ɵɵrepeaterCreate,
+  ɵɵrepeaterTrackByIdentity,
+  ɵɵresetView,
+  ɵɵrestoreView,
+  ɵɵtext,
+  ɵɵtextInterpolate1
+} from "./chunk-LP3XZL4R.js";
+import "./chunk-VUJOFXKG.js";
+
+// node_modules/choose-a-movie-for-me-ds/dist/checkboxContainer.js
+var i = class extends HTMLElement {
+  static get observedAttributes() {
+    return ["checked"];
+  }
+  get checked() {
+    return this.hasAttribute("checked");
+  }
+  set checked(e) {
+    e ? this.hasAttribute("checked") || this.setAttribute("checked", "") : this.hasAttribute("checked") && this.removeAttribute("checked"), this.shadowRoot && this.render();
+  }
+  constructor() {
+    super(), this.attachShadow({ mode: "open" }), this._onFocus = this._onFocus.bind(this), this._onBlur = this._onBlur.bind(this), this._onKeyDown = this._onKeyDown.bind(this), this._onClick = this._onClick.bind(this);
+  }
+  connectedCallback() {
+    this.render(), this.addEventListener("focus", this._onFocus), this.addEventListener("blur", this._onBlur), this.addEventListener("keydown", this._onKeyDown), this.addEventListener("click", this._onClick), this._addFocusListeners();
+  }
+  disconnectedCallback() {
+    this._removeFocusListeners(), this.removeEventListener("focus", this._onFocus), this.removeEventListener("blur", this._onBlur), this.removeEventListener("keydown", this._onKeyDown), this.removeEventListener("click", this._onClick);
+  }
+  attributeChangedCallback(e, s, t) {
+    this.shadowRoot && s !== t && this.render();
+  }
+  _addFocusListeners() {
+    const e = this.shadowRoot && this.shadowRoot.querySelector(".row");
+    e && (e.addEventListener("focus", this._onFocus), e.addEventListener("blur", this._onBlur));
+  }
+  _removeFocusListeners() {
+    const e = this.shadowRoot && this.shadowRoot.querySelector(".row");
+    e && (e.removeEventListener("focus", this._onFocus), e.removeEventListener("blur", this._onBlur));
+  }
+  _onFocus() {
+    this.setAttribute("focused", "");
+  }
+  _onBlur() {
+    this.removeAttribute("focused");
+  }
+  _onKeyDown(e) {
+    (e.key === " " || e.key === "Enter") && (e.preventDefault(), this._toggleChecked());
+  }
+  _onClick() {
+    this._toggleChecked();
+  }
+  _toggleChecked() {
+    this.checked = !this.checked, this.dispatchEvent(new CustomEvent("change", { detail: { checked: this.checked }, bubbles: true }));
+  }
+  render() {
+    this._removeFocusListeners();
+    const e = this.hasAttribute("checked");
+    this.shadowRoot.querySelector(".row") || (this.shadowRoot.innerHTML = `
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+                    :host { display: inline-block; }
+                    .row {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        padding: 4px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        user-select: none;
+                    }
+                    .box {
+                        width: 18px;
+                        height: 18px;
+                        border-radius: 4px;
+                        border: 2px solid #a8b3bd;
+                        background: #fff;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .box.checked {
+                        background: rgb(58, 125, 183);
+                        border-color: rgb(58, 125, 183);
+                    }
+                    .checkmark {
+                        width: 10px;
+                        height: 10px;
+                        display: block;
+                        color: #fff;
+                        font-size: 10px;
+                        line-height: 10px;
+                    }
+                </style>
+                <div class="row" role="checkbox" tabindex="0">
+                    <span class="box" part="box"><span class="checkmark">\u2713</span></span>
+                    <slot></slot>
+                </div>
+            `);
+    const s = this.shadowRoot.querySelector(".row"), t = this.shadowRoot.querySelector(".box");
+    s && s.setAttribute("aria-checked", e ? "true" : "false"), t && (t.classList.toggle("checked", e), t.querySelector(".checkmark").style.visibility = e ? "visible" : "hidden"), this._addFocusListeners();
+  }
+};
+customElements.define("cam-ds-checkbox-container", i);
+
+// node_modules/choose-a-movie-for-me-ds/dist/provider.js
+var r = class extends HTMLElement {
+  static get observedAttributes() {
+    return ["src", "alt"];
+  }
+  /**
+   * Getter/setter per attributo 'src'. Default: ''
+   */
+  get src() {
+    return this.getAttribute("src") || "";
+  }
+  set src(t) {
+    t != null ? this.setAttribute("src", t) : this.removeAttribute("src");
+  }
+  /**
+   * Getter/setter per attributo 'alt'. Default: ''
+   */
+  get alt() {
+    return this.getAttribute("alt") || "";
+  }
+  set alt(t) {
+    t != null ? this.setAttribute("alt", t) : this.removeAttribute("alt");
+  }
+  constructor() {
+    super(), this.attachShadow({ mode: "open" });
+  }
+  attributeChangedCallback() {
+    this.render();
+  }
+  connectedCallback() {
+    this.render();
+  }
+  render() {
+    const t = this.getAttribute("src") || "", e = this.getAttribute("alt"), s = e === null ? "" : e;
+    this.shadowRoot.innerHTML = `
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+                .provider {
+                    width: var(--cam-ds-provider-size, 24px);
+                    height: var(--cam-ds-provider-size, 24px);
+                    border-radius: 8px;
+                    overflow: hidden;
+                    display: inline-block;
+                    background: #fff;
+                    border: 1px solid #e0e0e0;
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    display: block;
+                    background: #fff;
+                }
+            </style>
+            <span class="provider">
+                <img src="${t}" alt="${s}" />
+            </span>
+        `;
+  }
+};
+customElements.define("cam-ds-provider", r);
+
+// src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/suggestion-movie-ask-me.component.ts
+var _forTrack0 = ($index, $item) => $item.id;
+function SuggestionMovieAskMeComponent_For_6_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r1 = \u0275\u0275getCurrentView();
+    \u0275\u0275domElementStart(0, "cam-ds-checkbox-container", 4);
+    \u0275\u0275domListener("change", function SuggestionMovieAskMeComponent_For_6_Template_cam_ds_checkbox_container_change_0_listener($event) {
+      const p_r2 = \u0275\u0275restoreView(_r1).$implicit;
+      const ctx_r2 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r2.toggleService(p_r2.id, $event));
+    });
+    \u0275\u0275domElement(1, "cam-ds-provider");
+    \u0275\u0275domElementEnd();
+  }
+  if (rf & 2) {
+    const p_r2 = ctx.$implicit;
+    const ctx_r2 = \u0275\u0275nextContext();
+    \u0275\u0275attribute("aria-label", p_r2.name)("aria-checked", ctx_r2.isSelectedService(p_r2.id));
+    \u0275\u0275advance();
+    \u0275\u0275attribute("src", p_r2.src)("alt", p_r2.alt);
+  }
+}
+function SuggestionMovieAskMeComponent_ForEmpty_7_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275domElementStart(0, "p");
+    \u0275\u0275text(1, "Nessun provider disponibile");
+    \u0275\u0275domElementEnd();
+  }
+}
+function SuggestionMovieAskMeComponent_For_14_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r4 = \u0275\u0275getCurrentView();
+    \u0275\u0275domElementStart(0, "cam-ds-checkbox-container", 4);
+    \u0275\u0275domListener("change", function SuggestionMovieAskMeComponent_For_14_Template_cam_ds_checkbox_container_change_0_listener($event) {
+      const g_r5 = \u0275\u0275restoreView(_r4).$implicit;
+      const ctx_r2 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r2.toggleGenre(g_r5, $event));
+    });
+    \u0275\u0275text(1);
+    \u0275\u0275domElementEnd();
+  }
+  if (rf & 2) {
+    const g_r5 = ctx.$implicit;
+    const ctx_r2 = \u0275\u0275nextContext();
+    \u0275\u0275attribute("aria-label", g_r5)("aria-checked", ctx_r2.isSelectedGenre(g_r5));
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate1(" ", g_r5, " ");
+  }
+}
+function SuggestionMovieAskMeComponent_ForEmpty_15_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275domElementStart(0, "p");
+    \u0275\u0275text(1, "Nessun provider disponibile");
+    \u0275\u0275domElementEnd();
+  }
+}
+var MOCK_PROVIDERS = [
+  { id: 1, src: "/logo-netflix.svg", alt: "Netflix", name: "Netflix" },
+  { id: 2, src: "/logo-disney.svg", alt: "Disney+", name: "Disney+" },
+  { id: 3, src: "/logo-prime.svg", alt: "Prime Video", name: "Prime Video" },
+  { id: 4, src: "/logo-hbo.svg", alt: "HBO Max", name: "HBO Max" }
+];
+var MOCK_GENRES = [
+  "Horror",
+  "Comedy"
+];
+var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
+  // signal that holds the array of providers (mocked for now)
+  providers = signal(MOCK_PROVIDERS, ...ngDevMode ? [{ debugName: "providers" }] : []);
+  // writable signal that holds the set of selected provider ids
+  selectedProviders = signal(/* @__PURE__ */ new Set(), ...ngDevMode ? [{ debugName: "selectedProviders" }] : []);
+  // derived/computed signal showing how many are selected
+  selectedCountProviders = computed(() => this.selectedProviders().size, ...ngDevMode ? [{ debugName: "selectedCountProviders" }] : []);
+  // helper used from the template
+  isSelectedService(id) {
+    return this.selectedProviders().has(id);
+  }
+  // toggle selection — update the signal immutably by creating a new Set
+  toggleService(id, el) {
+    const hasChecked = el.detail?.checked;
+    const next = new Set(this.selectedProviders());
+    if (hasChecked)
+      next.add(id);
+    else
+      next.delete(id);
+    this.selectedProviders.set(next);
+    return;
+  }
+  // signal that holds the array of genres (mocked for now)
+  genres = signal(MOCK_GENRES, ...ngDevMode ? [{ debugName: "genres" }] : []);
+  // writable signal that holds the set of selected genre ids
+  selectedGenres = signal(/* @__PURE__ */ new Set(), ...ngDevMode ? [{ debugName: "selectedGenres" }] : []);
+  // derived/computed signal showing how many are selected
+  selectedCountGenres = computed(() => this.selectedGenres().size, ...ngDevMode ? [{ debugName: "selectedCountGenres" }] : []);
+  // helper used from the template
+  isSelectedGenre(genre) {
+    return this.selectedGenres().has(genre);
+  }
+  // toggle selection — update the signal immutably by creating a new Set
+  toggleGenre(genre, el) {
+    const hasChecked = el.detail?.checked;
+    const next = new Set(this.selectedGenres());
+    if (hasChecked)
+      next.add(genre);
+    else
+      next.delete(genre);
+    this.selectedGenres.set(next);
+    return;
+  }
+  search() {
+    console.log(this.selectedProviders(), this.selectedGenres());
+  }
+  static \u0275fac = function SuggestionMovieAskMeComponent_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _SuggestionMovieAskMeComponent)();
+  };
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SuggestionMovieAskMeComponent, selectors: [["app-services"]], decls: 18, vars: 4, consts: [["level", "2"], [1, "providers"], [1, "genres"], [3, "click"], [3, "change"]], template: function SuggestionMovieAskMeComponent_Template(rf, ctx) {
+    if (rf & 1) {
+      \u0275\u0275domElementStart(0, "cam-ds-heading", 0);
+      \u0275\u0275text(1, "Choose a Service");
+      \u0275\u0275domElementEnd();
+      \u0275\u0275domElementStart(2, "p");
+      \u0275\u0275text(3);
+      \u0275\u0275domElementEnd();
+      \u0275\u0275domElementStart(4, "div", 1);
+      \u0275\u0275repeaterCreate(5, SuggestionMovieAskMeComponent_For_6_Template, 2, 4, "cam-ds-checkbox-container", null, _forTrack0, false, SuggestionMovieAskMeComponent_ForEmpty_7_Template, 2, 0, "p");
+      \u0275\u0275domElementEnd();
+      \u0275\u0275domElementStart(8, "cam-ds-heading", 0);
+      \u0275\u0275text(9, "Choose a Genre");
+      \u0275\u0275domElementEnd();
+      \u0275\u0275domElementStart(10, "p");
+      \u0275\u0275text(11);
+      \u0275\u0275domElementEnd();
+      \u0275\u0275domElementStart(12, "div", 2);
+      \u0275\u0275repeaterCreate(13, SuggestionMovieAskMeComponent_For_14_Template, 2, 3, "cam-ds-checkbox-container", null, \u0275\u0275repeaterTrackByIdentity, false, SuggestionMovieAskMeComponent_ForEmpty_15_Template, 2, 0, "p");
+      \u0275\u0275domElementEnd();
+      \u0275\u0275domElementStart(16, "cam-ds-button", 3);
+      \u0275\u0275domListener("click", function SuggestionMovieAskMeComponent_Template_cam_ds_button_click_16_listener() {
+        return ctx.search();
+      });
+      \u0275\u0275text(17, "Cerca");
+      \u0275\u0275domElementEnd();
+    }
+    if (rf & 2) {
+      \u0275\u0275advance(3);
+      \u0275\u0275textInterpolate1("Selezionati: ", ctx.selectedCountProviders());
+      \u0275\u0275advance(2);
+      \u0275\u0275repeater(ctx.providers());
+      \u0275\u0275advance(6);
+      \u0275\u0275textInterpolate1("Selezionati: ", ctx.selectedCountGenres());
+      \u0275\u0275advance(2);
+      \u0275\u0275repeater(ctx.genres());
+    }
+  }, dependencies: [CommonModule], styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=suggestion-movie-ask-me.component.css.map */"], changeDetection: 0 });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(SuggestionMovieAskMeComponent, [{
+    type: Component,
+    args: [{ selector: "app-services", standalone: true, imports: [CommonModule], template: `
+    <cam-ds-heading level="2">Choose a Service</cam-ds-heading>
+
+    <p>Selezionati: {{ selectedCountProviders() }}</p>
+
+    <div class="providers">
+      @for (p of providers(); track p.id) {
+        <cam-ds-checkbox-container
+          (change)="toggleService(p.id, $event)"
+          [attr.aria-label]="p.name"
+          [attr.aria-checked]="isSelectedService(p.id)">
+          <cam-ds-provider [attr.src]="p.src" [attr.alt]="p.alt"></cam-ds-provider>
+        </cam-ds-checkbox-container>
+      } @empty {
+        <p>Nessun provider disponibile</p>
+      }
+    </div>
+
+    <cam-ds-heading level="2">Choose a Genre</cam-ds-heading>
+        
+        <p>Selezionati: {{ selectedCountGenres() }}</p>
+    
+        <div class="genres">
+          @for (g of genres(); track g) {
+            <cam-ds-checkbox-container
+              (change)="toggleGenre(g, $event)"
+              [attr.aria-label]="g"
+              [attr.aria-checked]="isSelectedGenre(g)">
+             {{g}}
+            </cam-ds-checkbox-container>
+          } @empty {
+            <p>Nessun provider disponibile</p>
+          }
+        </div>
+
+      <cam-ds-button (click)="search()">Cerca</cam-ds-button>
+  `, changeDetection: ChangeDetectionStrategy.OnPush, schemas: [CUSTOM_ELEMENTS_SCHEMA], styles: ["/* src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/suggestion-movie-ask-me.component.css */\n:host {\n  display: block;\n}\n/*# sourceMappingURL=suggestion-movie-ask-me.component.css.map */\n"] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SuggestionMovieAskMeComponent, { className: "SuggestionMovieAskMeComponent", filePath: "src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/suggestion-movie-ask-me.component.ts", lineNumber: 72 });
+})();
+export {
+  SuggestionMovieAskMeComponent
+};
+//# sourceMappingURL=chunk-YWJA3A33.js.map

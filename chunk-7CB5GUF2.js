@@ -1,8 +1,8 @@
-import "./chunk-6V7WYHJC.js";
 import {
   RouterLink
-} from "./chunk-D5PSDVCX.js";
-import "./chunk-RAA3JLT6.js";
+} from "./chunk-7VYWG626.js";
+import "./chunk-6V7WYHJC.js";
+import "./chunk-DNPXSVUU.js";
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   ChangeDetectionStrategy,
@@ -16,7 +16,7 @@ import {
   ɵɵproperty,
   ɵɵpureFunction0,
   ɵɵtext
-} from "./chunk-CKIRYVSM.js";
+} from "./chunk-LP3XZL4R.js";
 import "./chunk-VUJOFXKG.js";
 
 // src/app/pages/suggestion/suggestion-media/suggestion-media.component.ts
@@ -65,4 +65,4 @@ var SuggestionMediaComponent = class _SuggestionMediaComponent {
 export {
   SuggestionMediaComponent
 };
-//# sourceMappingURL=chunk-5V4BG2RI.js.map
+//# sourceMappingURL=chunk-7CB5GUF2.js.map

@@ -2,8 +2,8 @@ import {
   RouterOutlet,
   bootstrapApplication,
   provideRouter
-} from "./chunk-D5PSDVCX.js";
-import "./chunk-RAA3JLT6.js";
+} from "./chunk-7VYWG626.js";
+import "./chunk-DNPXSVUU.js";
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
@@ -14,7 +14,7 @@ import {
   ɵɵelement,
   ɵɵelementEnd,
   ɵɵelementStart
-} from "./chunk-CKIRYVSM.js";
+} from "./chunk-LP3XZL4R.js";
 import "./chunk-VUJOFXKG.js";
 
 // src/app/app.routes.ts
@@ -22,16 +22,20 @@ var routes = [
   {
     path: "",
     pathMatch: "full",
-    loadComponent: () => import("./chunk-DPVJNGMW.js").then((m) => m.ModeComponent)
+    loadComponent: () => import("./chunk-L6Y7FWDB.js").then((m) => m.ModeComponent)
   },
   {
     path: "suggestion",
-    loadChildren: () => import("./chunk-DWP3QSTQ.js").then((m) => m.routes)
+    loadChildren: () => import("./chunk-6MOGUKYO.js").then((m) => m.routes)
   },
   {
     path: "find",
     pathMatch: "full",
-    loadComponent: () => import("./chunk-2LUHC4HF.js").then((m) => m.FindComponent)
+    loadComponent: () => import("./chunk-DTQZHWXT.js").then((m) => m.FindComponent)
+  },
+  {
+    path: "movie",
+    loadChildren: () => import("./chunk-BSLRS4MU.js").then((m) => m.routes)
   }
 ];
 
@@ -117,97 +121,6 @@ var e = class extends HTMLElement {
   }
 };
 customElements.define("cam-ds-footer", e);
-
-// node_modules/choose-a-movie-for-me-ds/dist/hamburgerButton.js
-var a = class extends HTMLElement {
-  static get observedAttributes() {
-    return ["aria-pressed", "aria-expanded"];
-  }
-  /**
-   * Getter/setter per attributo 'aria-pressed'. Default: false
-   */
-  get ariaPressed() {
-    return this.getAttribute("aria-pressed") === "true";
-  }
-  set ariaPressed(t3) {
-    this.setAttribute("aria-pressed", t3 ? "true" : "false");
-  }
-  /**
-   * Getter/setter per attributo 'aria-expanded'. Default: false
-   */
-  get ariaExpanded() {
-    return this.getAttribute("aria-expanded") === "true";
-  }
-  set ariaExpanded(t3) {
-    this.setAttribute("aria-expanded", t3 ? "true" : "false");
-  }
-  /**
-   * Osserva cambiamenti agli attributi e aggiorna lo stato.
-   */
-  attributeChangedCallback(t3, e3, n) {
-    e3 !== n && this.render();
-  }
-  constructor() {
-    super(), this.attachShadow({ mode: "open" }), this._onKeyDown = this._onKeyDown.bind(this), this._onClick = this._onClick.bind(this);
-  }
-  connectedCallback() {
-    this.render();
-    const t3 = this.shadowRoot.querySelector("button");
-    t3 && (t3.addEventListener("keydown", this._onKeyDown), t3.addEventListener("click", this._onClick));
-  }
-  disconnectedCallback() {
-    const t3 = this.shadowRoot.querySelector("button");
-    t3 && (t3.removeEventListener("keydown", this._onKeyDown), t3.removeEventListener("click", this._onClick));
-  }
-  _onKeyDown(t3) {
-    (t3.key === "Enter" || t3.key === " ") && (t3.preventDefault(), t3.target.click());
-  }
-  _onClick(t3) {
-    const e3 = t3.currentTarget, n = e3.getAttribute("aria-pressed") === "true";
-    e3.setAttribute("aria-pressed", String(!n)), e3.setAttribute("aria-expanded", String(!n)), this.dispatchEvent(new CustomEvent("toggle", { detail: { expanded: !n } }));
-  }
-  render() {
-    this.shadowRoot.innerHTML = `
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-        :host {
-          display: inline-block;
-        }
-        button {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 40px;
-          height: 40px;
-          background: transparent;
-          border: none;
-          cursor: pointer;
-          padding: 0;
-          outline: none;
-        }
-        .bar {
-          width: 28px;
-          height: 3px;
-          background: #2b3442;
-          margin: 4px 0;
-          border-radius: 2px;
-          transition: background 0.2s;
-        }
-        button:focus .bar,
-        button:hover .bar {
-          background: #f15a24;
-        }
-      </style>
-      <button aria-label="Menu" type="button" aria-pressed="false" aria-expanded="false" tabindex="0">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-    `;
-  }
-};
-customElements.define("cam-ds-hamburger-button", a);
 
 // node_modules/choose-a-movie-for-me-ds/dist/logo.js
 var s = class extends HTMLElement {
@@ -297,7 +210,7 @@ var e2 = class extends HTMLElement {
         .header {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: flex-start;
           padding: 0.5rem 1rem;
           background: transparent;
           border-bottom: 1px solid #eee;
@@ -312,7 +225,6 @@ var e2 = class extends HTMLElement {
       </style>
       <header class="header">
         <cam-ds-logo style="width:200px;max-width:200px;" aria-label="Logo"></cam-ds-logo>
-        <cam-ds-hamburger-button aria-label="Menu"></cam-ds-hamburger-button>
       </header>
     `;
   }

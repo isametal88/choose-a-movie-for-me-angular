@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/services/services.routes.ts"],
-  "sourcesContent": ["import { Routes } from '@angular/router';\n\nexport const routes: Routes = [\n    {\n        path: '',\n        children: [\n            {\n                path: '',\n                loadComponent: () => import('./services.component').then(m => m.ServicesComponent)\n            },\n            {\n                path: 'genre',\n                loadComponent: () => import('./genre/genre.component').then(m => m.GenreComponent)\n            },\n            {\n                path: '**',\n                redirectTo: ''\n            }\n        ]\n    }\n];\n"],
-  "mappings": ";;;AAEO,IAAM,SAAiB;EAC1B;IACI,MAAM;IACN,UAAU;MACN;QACI,MAAM;QACN,eAAe,MAAM,OAAO,qBAAsB,EAAE,KAAK,OAAK,EAAE,iBAAiB;;MAErF;QACI,MAAM;QACN,eAAe,MAAM,OAAO,qBAAyB,EAAE,KAAK,OAAK,EAAE,cAAc;;MAErF;QACI,MAAM;QACN,YAAY;;;;;",
-  "names": []
-}

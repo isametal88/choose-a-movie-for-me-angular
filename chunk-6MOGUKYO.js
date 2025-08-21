@@ -8,12 +8,12 @@ var routes = [
       {
         path: "",
         pathMatch: "full",
-        loadComponent: () => import("./chunk-5V4BG2RI.js").then((m) => m.SuggestionMediaComponent)
+        loadComponent: () => import("./chunk-7CB5GUF2.js").then((m) => m.SuggestionMediaComponent)
       },
       {
         path: "movie",
         //pathMatch: 'full',
-        loadChildren: () => import("./chunk-P2M5KAQY.js").then((m) => m.routes)
+        loadChildren: () => import("./chunk-LRYIPHW6.js").then((m) => m.routes)
       },
       {
         path: "**",
@@ -30,4 +30,4 @@ var routes = [
 export {
   routes
 };
-//# sourceMappingURL=chunk-DWP3QSTQ.js.map
+//# sourceMappingURL=chunk-6MOGUKYO.js.map

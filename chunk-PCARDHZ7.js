@@ -4,11 +4,11 @@ import "./chunk-VUJOFXKG.js";
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-RWSCYPGV.js").then((m) => m.SuggestionMovieSurpriseMeComponent),
+    loadComponent: () => import("./chunk-CDH376HB.js").then((m) => m.SuggestionMovieSurpriseMeComponent),
     children: []
   }
 ];
 export {
   routes
 };
-//# sourceMappingURL=chunk-M5DKBPJ3.js.map
+//# sourceMappingURL=chunk-PCARDHZ7.js.map

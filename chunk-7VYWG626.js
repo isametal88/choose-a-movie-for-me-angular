@@ -12,7 +12,7 @@ import {
   getDOM,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-RAA3JLT6.js";
+} from "./chunk-DNPXSVUU.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -149,7 +149,7 @@ import {
   ɵɵloadQuery,
   ɵɵqueryRefresh,
   ɵɵsanitizeUrlOrResourceUrl
-} from "./chunk-CKIRYVSM.js";
+} from "./chunk-LP3XZL4R.js";
 import {
   __spreadProps,
   __spreadValues
@@ -7671,6 +7671,7 @@ var VERSION2 = new Version("20.1.7");
 
 export {
   bootstrapApplication,
+  ActivatedRoute,
   RouterOutlet,
   RouterLink,
   provideRouter
@@ -7689,4 +7690,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-D5PSDVCX.js.map
+//# sourceMappingURL=chunk-7VYWG626.js.map

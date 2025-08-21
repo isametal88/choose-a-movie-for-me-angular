@@ -23390,6 +23390,9 @@ export {
   APP_BOOTSTRAP_LISTENER,
   ApplicationRef,
   ɵɵattribute,
+  ɵɵconditionalCreate,
+  ɵɵconditional,
+  ɵɵrepeaterTrackByIdentity,
   ɵɵrepeaterCreate,
   ɵɵrepeater,
   ɵɵproperty,
@@ -23411,6 +23414,7 @@ export {
   ɵɵloadQuery,
   ɵɵstyleProp,
   ɵɵtext,
+  ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵpureFunction0,
   ɵsetClassDebugInfo,
@@ -23478,4 +23482,4 @@ export {
    * found in the LICENSE file at https://angular.dev/license
    *)
 */
-//# sourceMappingURL=chunk-CKIRYVSM.js.map
+//# sourceMappingURL=chunk-LP3XZL4R.js.map
