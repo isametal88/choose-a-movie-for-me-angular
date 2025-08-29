@@ -49,8 +49,7 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "baseHref": "/choose-a-movie-for-me-angular/"
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"

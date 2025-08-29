@@ -1,0 +1,44 @@
+<div class="movie-container">
+    @if (loading()) {
+    <div class="loader-container">
+        <cam-ds-loader></cam-ds-loader>
+    </div>
+    } @else if (errorMessage()) {
+    <div class="error-container">
+        <p class="error-message">{{ errorMessage() }}</p>
+    </div>
+    } @else if (movieId()) {
+    <div class="movie-content">
+        <div class="first">
+            <cam-ds-movie-info title="Inception" genres="Azione, Fantascienza" duration="148 min" rating="8.7"
+                poster="/inception.jpg" poster-alt="Poster Inception">
+                <p>Dom Cobb è un ladro specializzato nell'estrazione: ruba i segreti dal subconscio durante il sonno,
+                    quando la mente è più vulnerabile.</p>
+            </cam-ds-movie-info>
+        </div>
+        <div class="second">
+            <cam-ds-people-list title="Cast">
+                <cam-ds-person name="Leonardo DiCaprio" role="Dom Cobb"></cam-ds-person>
+                <cam-ds-person name="Joseph Gordon-Levitt" role="Arthur"></cam-ds-person>
+                <cam-ds-person name="Elliot Page" role="Ariadne"></cam-ds-person>
+            </cam-ds-people-list>
+            <cam-ds-people-list title="Crew">
+                <cam-ds-person name="Leonardo DiCaprio" role="Dom Cobb"></cam-ds-person>
+                <cam-ds-person name="Joseph Gordon-Levitt" role="Arthur"></cam-ds-person>
+                <cam-ds-person name="Elliot Page" role="Ariadne"></cam-ds-person>
+            </cam-ds-people-list>
+        </div>
+        <div class="third">
+            <cam-ds-youtube-player video-id="UPrkC1LdlLY" autoplay="false" mute="false" responsive="true" error="false"
+                aria-label="Trailer"></cam-ds-youtube-player>
+
+            <cam-ds-availability>
+                <cam-ds-billing-type type="streaming" selected>
+                    <cam-ds-provider src="netflix.png"></cam-ds-provider>
+                    <cam-ds-provider src="prime.png"></cam-ds-provider>
+                </cam-ds-billing-type>
+            </cam-ds-availability>
+        </div>
+    </div>
+    }
+</div>

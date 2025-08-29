@@ -17,6 +17,8 @@
   flex: 1 1 0%;
   min-height: 0;
   height: 100%;
+  width: 100%;
+  max-width: 100%;
 }
 
 
@@ -36,6 +38,13 @@
     height: auto;
 
     flex-direction: column;
+  }
+
+  .first,
+  .second,
+  .third {
+    width: 100%;
+    max-width: 100%;
   }
 
 }
