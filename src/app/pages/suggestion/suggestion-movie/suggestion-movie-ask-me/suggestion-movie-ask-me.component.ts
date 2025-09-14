@@ -4,6 +4,7 @@ import 'choose-a-movie-for-me-ds/button';
 import 'choose-a-movie-for-me-ds/checkbox-container';
 import 'choose-a-movie-for-me-ds/provider';
 import 'choose-a-movie-for-me-ds/typography-heading';
+import { TmdbSearchService } from '../../../../services/tmdb.search.service';
 import { TMDBService } from '../../../../services/tmdb.service';
 
 @Component({
@@ -53,6 +54,7 @@ import { TMDBService } from '../../../../services/tmdb.service';
 })
 export class SuggestionMovieAskMeComponent {
   tmdbService = inject(TMDBService);
+  tmdbSearchService = inject(TmdbSearchService);
 
 
   // signal that holds the array of providers (mocked for now)
@@ -116,10 +118,23 @@ export class SuggestionMovieAskMeComponent {
 
     console.log(movies, genres)
 
-    const result = this.tmdbService.discover({
+    const result = await this.tmdbService.discover({
       providers: Array.from(this.selectedProviders()),
       genres: Array.from(this.selectedGenres())
     });
+    this.tmdbSearchService.setSearchResult(result);
+
+    /*  for (var i = 1; i <= 50; i++) {
+       const another = this.tmdbSearchService.getAnotherResult();
+       if (another) {
+         console.log(another.title);
+       } else {
+         console.log("No more results");
+         break;
+       }
+     } */
+
+    this.tmdbSearchService.goToResult()
   }
 
 }

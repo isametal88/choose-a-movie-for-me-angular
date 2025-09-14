@@ -1,10 +1,16 @@
 import { inject, Injectable, LOCALE_ID, signal } from '@angular/core';
-import { Genre, TMDB, TMDBConfigurationResponse, WatchProvider, WatchProvidersResponse, WatchRegion, WatchRegionsResponse } from 'choose-a-movie-for-me-data-source';
+import { Credits, Genre, Movie, MovieAppendToResponse, MovieDetails, MovieWatchProvidersResponse, TMDB, TMDBConfigurationResponse, TMDBResponse, VideosResponse, WatchProvider, WatchProvidersResponse, WatchRegion, WatchRegionsResponse } from 'choose-a-movie-for-me-data-source';
+
+export type MovieWithExtras = MovieDetails & { credits: Credits, videos: VideosResponse, 'watch/providers': MovieWatchProvidersResponse };
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TMDBService {
+
+
+
 
   locale = inject(LOCALE_ID)
 
@@ -23,10 +29,12 @@ export class TMDBService {
   providers = this.providers_.asReadonly();
 
   constructor() {
+    const userInfo = getUserLocaleInfo()
+
     this.tmdb = new TMDB({
       apiKey: this.tmdbApiKey,
-      language: this.locale,
-      region: this.locale.split('-')[1] || 'US',
+      language: userInfo.language,
+      region: userInfo.region || 'IT',
     })
 
     this.loadInitialData();
@@ -38,22 +46,21 @@ export class TMDBService {
 
     const { genres } = await this.getGenres();
     this.genres_.set(genres);
-    const { results: regions } = await this.getRegions();
-    console.log(regions)
-    const { results: providers } = await this.getWatchProviders();
+    const { region } = this.tmdb.getConfig();
+
+    const { results: providers } = await this.getWatchProviders(region);
+
     this.providers_.set(providers?.sort((a, b) => {
-      if (a.display_priority < b.display_priority) return -1;
-      if (a.display_priority > b.display_priority) return 1;
+      if (a.display_priorities[region] < b.display_priorities[region]) return -1;
+      if (a.display_priorities[region] > b.display_priorities[region]) return 1;
       return 0;
-    }).slice(0, 15).map(provider => ({
+    }).slice(0, 20).map(provider => ({
       ...provider,
       logo_path: config.images.secure_base_url + 'w45' + provider.logo_path
     })) || [])
-
-    console.log(config)
   }
 
-  async discover(query: { providers: number[], genres: number[] }): Promise<any> {
+  async discover(query: { providers: number[], genres: number[] }): Promise<TMDBResponse<Movie>> {
     return await this.tmdb.movies.discoverMovies({
       withGenres: query.genres.join('|'),
       withWatchProviders: query.providers.join('|'),
@@ -71,7 +78,43 @@ export class TMDBService {
     return this.tmdb.watchProviders.getAvailableRegions()
   }
 
-  async getWatchProviders(): Promise<WatchProvidersResponse> {
-    return this.tmdb.watchProviders.getMovieProviders('US')
+  async getWatchProviders(region: string): Promise<WatchProvidersResponse> {
+    return this.tmdb.watchProviders.getMovieProviders(region)
   }
+
+  async getMovieDetails(id: number): Promise<MovieWithExtras> {
+    return this.tmdb.movies.getMovie(id, [MovieAppendToResponse.Credits, MovieAppendToResponse.Videos, MovieAppendToResponse.WatchProviders, MovieAppendToResponse.Images]) as Promise<MovieWithExtras>;
+  }
+
+  async getPosterUrl(poster_path: string | null | undefined): Promise<any> {
+    const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
+    if (!poster_path) return null;
+    return config.images.secure_base_url + config.images.poster_sizes[1] + poster_path;
+  }
+
+  async getBackdropUrl(path: string): Promise<any> {
+    const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
+    if (!path) return null;
+    console.log(config.images.backdrop_sizes);
+    return config.images.secure_base_url + 'original' + path;
+  }
+
+  async getProviderUrl(logo_path: string | null | undefined): Promise<string | null> {
+    const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
+    if (!logo_path) return null;
+    return config.images.secure_base_url + config.images.logo_sizes[0] + logo_path;
+  }
+}
+
+function getUserLocaleInfo() {
+  const primaryLanguage = navigator.language;
+  const allLanguages = navigator.languages || [primaryLanguage];
+  const [language, region] = primaryLanguage.split('-');
+
+  return {
+    primaryLanguage,
+    language,
+    region: region || null,
+    allLanguages,
+  };
 }

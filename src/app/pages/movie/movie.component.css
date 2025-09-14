@@ -1,6 +1,6 @@
 :host {
   display: block;
-  height: 100vh;
+  height: 100%;
 }
 
 .movie-container {
@@ -8,8 +8,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: var(--bg-url);
+  background-size: cover;
 
   min-height: 0;
+  position: relative;
+
+}
+
+.movie-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* bianco semi-trasparente sopra l'immagine */
+  z-index: 0;
+}
+
+.movie-container>* {
+  position: relative;
+  z-index: 1;
 }
 
 .movie-content {
