@@ -20,6 +20,8 @@ import { TMDBService } from '../../../../services/tmdb.service';
       @for (p of providers(); track p.provider_id) {
         <cam-ds-checkbox-container
           (change)="toggleService(p.provider_id, $event)"
+          role="checkbox"
+          [attr.tabindex]="0"
           [attr.aria-label]="p.provider_name"
           [attr.aria-checked]="isSelectedService(p.provider_id)">
           <cam-ds-provider [attr.src]="p.logo_path" [attr.alt]="p.provider_name"></cam-ds-provider>
@@ -37,6 +39,8 @@ import { TMDBService } from '../../../../services/tmdb.service';
           @for (g of genres(); track g) {
             <cam-ds-checkbox-container
               (change)="toggleGenre(g.id, $event)"
+              role="checkbox"
+  [attr.tabindex]="0"
               [attr.aria-label]="g.name"
               [attr.aria-checked]="isSelectedGenre(g.id)">
              {{g.name}}
@@ -87,6 +91,12 @@ export class SuggestionMovieAskMeComponent {
   // writable signal that holds the set of selected genre ids
   private selectedGenres = signal<Set<number>>(new Set());
 
+  readonly selectedGenresMap = computed(() => {
+    const selected = new Map<number, boolean>();
+    this.selectedGenres().forEach(id => selected.set(id, true));
+    return selected;
+  });
+
   // derived/computed signal showing how many are selected
   selectedCountGenres = computed(() => this.selectedGenres().size);
 
@@ -107,32 +117,11 @@ export class SuggestionMovieAskMeComponent {
 
   async search() {
 
-    const movies = await this.tmdbService.discover({
-      providers: Array.from(this.selectedProviders()),
-      genres: Array.from(this.selectedGenres())
-    });
-
-    const genres = await this.tmdbService.getGenres();
-
-    console.log(this.selectedProviders(), this.selectedGenres())
-
-    console.log(movies, genres)
-
     const result = await this.tmdbService.discover({
       providers: Array.from(this.selectedProviders()),
       genres: Array.from(this.selectedGenres())
     });
     this.tmdbSearchService.setSearchResult(result);
-
-    /*  for (var i = 1; i <= 50; i++) {
-       const another = this.tmdbSearchService.getAnotherResult();
-       if (another) {
-         console.log(another.title);
-       } else {
-         console.log("No more results");
-         break;
-       }
-     } */
 
     this.tmdbSearchService.goToResult()
   }

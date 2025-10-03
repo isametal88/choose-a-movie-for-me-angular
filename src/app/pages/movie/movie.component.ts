@@ -17,7 +17,6 @@ export class PosterPathPipe {
   constructor(private tmdbService: TMDBService) { }
 
   transform(poster_path: string | null | undefined): Promise<string | null> {
-    console.log(poster_path)
     return this.tmdbService.getPosterUrl(poster_path);
   }
 }

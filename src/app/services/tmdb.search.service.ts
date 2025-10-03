@@ -1,5 +1,5 @@
 
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie, TMDBResponse } from 'choose-a-movie-for-me-data-source';
 
@@ -13,21 +13,23 @@ export class TmdbSearchService {
 
   router = inject(Router);
 
-  result: TMDBResponse<Movie> | undefined = undefined;
-
-  currentMovieResult: Movie | undefined = undefined;
+  private readonly _result = signal<TMDBResponse<Movie> | null>(null);
+  private readonly _currentMovie = signal<Movie | null>(null);
+  
+  readonly result = this._result.asReadonly();
+  readonly currentMovie = this._currentMovie.asReadonly();
 
   setSearchResult(result: TMDBResponse<Movie>) {
-    this.result = result;
-    this.currentMovieResult = (result.results && result.results.length > 0) ? result.results[0] : undefined;
-    console.log(this.currentMovieResult)
+     this._result.set(result);
+    this._currentMovie.set(result.results?.[0] || null);
   }
 
   getAnotherResult(): Movie | undefined {
-    if (this.result && this.result.results && this.result.results.length > 1) {
-      const newMovie = this.result.results[this.result.results.findIndex(movie => movie.id === this.currentMovieResult?.id) + 1];
+    const result = this._result();
+    if (!!result && this.result.results && this.result.results.length > 1) {
+      const newMovie = this._result().results[this._result().results.findIndex(movie => movie.id === this._currentMovie()?.id) + 1];
       if (newMovie) {
-        this.currentMovieResult = newMovie;
+        this._currentMovie.set(newMovie);
         return newMovie;
       }
     }

@@ -9,9 +9,6 @@ export type MovieWithExtras = MovieDetails & { credits: Credits, videos: VideosR
 })
 export class TMDBService {
 
-
-
-
   locale = inject(LOCALE_ID)
 
   tmdbApiKey = '8ccd470b081b71f4a0e2f94c9ce2e07a';
@@ -87,21 +84,23 @@ export class TMDBService {
   }
 
   async getPosterUrl(poster_path: string | null | undefined): Promise<any> {
-    const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
+
     if (!poster_path) return null;
+    const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
     return config.images.secure_base_url + config.images.poster_sizes[1] + poster_path;
   }
 
   async getBackdropUrl(path: string): Promise<any> {
-    const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
+
     if (!path) return null;
-    console.log(config.images.backdrop_sizes);
+    const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
     return config.images.secure_base_url + 'original' + path;
   }
 
   async getProviderUrl(logo_path: string | null | undefined): Promise<string | null> {
-    const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
+
     if (!logo_path) return null;
+    const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
     return config.images.secure_base_url + config.images.logo_sizes[0] + logo_path;
   }
 }
