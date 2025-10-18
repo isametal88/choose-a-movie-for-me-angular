@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/pages/suggestion/suggestion-movie/suggestion-movie-surprise-me/suggestion-movie-surprise-me.component.ts"],
-  "sourcesContent": ["import { ChangeDetectionStrategy, Component } from '@angular/core';\n\n@Component({\n  selector: 'app-suggestion-movie-surprise-me',\n  imports: [],\n  template: `<p>suggestion-movie-surprise-me works!</p>`,\n  styleUrl: './suggestion-movie-surprise-me.component.css',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SuggestionMovieSurpriseMeComponent { }\n"],
-  "mappings": ";;;;;;;;;;;;;AASM,IAAO,qCAAP,MAAO,oCAAkC;;qCAAlC,qCAAkC;EAAA;yEAAlC,qCAAkC,WAAA,CAAA,CAAA,kCAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,UAAA,SAAA,4CAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;AAJlC,MAAA,4BAAA,GAAA,GAAA;AAAG,MAAA,iBAAA,GAAA,qCAAA;AAAmC,MAAA,0BAAA;;;;;sEAItC,oCAAkC,CAAA;UAP9C;uBACW,oCAAkC,SACnC,CAAA,GAAE,UACD,8CAA4C,iBAErC,wBAAwB,QAAM,QAAA,CAAA,kOAAA,EAAA,CAAA;;;;6EAEpC,oCAAkC,EAAA,WAAA,sCAAA,UAAA,oHAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
-  "names": []
-}

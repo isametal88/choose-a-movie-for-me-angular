@@ -1,13 +1,19 @@
-import "./chunk-OOCSKCZK.js";
-import "./chunk-6V7WYHJC.js";
+import "./chunk-BJ2QXCYT.js";
+import "./chunk-FMZO32X5.js";
+import "./chunk-XCLE2RQI.js";
+import {
+  TMDBService,
+  TmdbSearchService
+} from "./chunk-MWXV3S6X.js";
 import {
   CommonModule
-} from "./chunk-DNPXSVUU.js";
+} from "./chunk-EWKMVYH6.js";
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   ChangeDetectionStrategy,
   Component,
   computed,
+  inject,
   setClassMetadata,
   signal,
   ɵsetClassDebugInfo,
@@ -27,8 +33,8 @@ import {
   ɵɵrestoreView,
   ɵɵtext,
   ɵɵtextInterpolate1
-} from "./chunk-LP3XZL4R.js";
-import "./chunk-VUJOFXKG.js";
+} from "./chunk-XDCJZM2Q.js";
+import "./chunk-CZJLB7T5.js";
 
 // node_modules/choose-a-movie-for-me-ds/dist/checkboxContainer.js
 var i = class extends HTMLElement {
@@ -126,79 +132,16 @@ var i = class extends HTMLElement {
 };
 customElements.define("cam-ds-checkbox-container", i);
 
-// node_modules/choose-a-movie-for-me-ds/dist/provider.js
-var r = class extends HTMLElement {
-  static get observedAttributes() {
-    return ["src", "alt"];
-  }
-  /**
-   * Getter/setter per attributo 'src'. Default: ''
-   */
-  get src() {
-    return this.getAttribute("src") || "";
-  }
-  set src(t) {
-    t != null ? this.setAttribute("src", t) : this.removeAttribute("src");
-  }
-  /**
-   * Getter/setter per attributo 'alt'. Default: ''
-   */
-  get alt() {
-    return this.getAttribute("alt") || "";
-  }
-  set alt(t) {
-    t != null ? this.setAttribute("alt", t) : this.removeAttribute("alt");
-  }
-  constructor() {
-    super(), this.attachShadow({ mode: "open" });
-  }
-  attributeChangedCallback() {
-    this.render();
-  }
-  connectedCallback() {
-    this.render();
-  }
-  render() {
-    const t = this.getAttribute("src") || "", e = this.getAttribute("alt"), s = e === null ? "" : e;
-    this.shadowRoot.innerHTML = `
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-                .provider {
-                    width: var(--cam-ds-provider-size, 24px);
-                    height: var(--cam-ds-provider-size, 24px);
-                    border-radius: 8px;
-                    overflow: hidden;
-                    display: inline-block;
-                    background: #fff;
-                    border: 1px solid #e0e0e0;
-                    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-                }
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    display: block;
-                    background: #fff;
-                }
-            </style>
-            <span class="provider">
-                <img src="${t}" alt="${s}" />
-            </span>
-        `;
-  }
-};
-customElements.define("cam-ds-provider", r);
-
 // src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/suggestion-movie-ask-me.component.ts
-var _forTrack0 = ($index, $item) => $item.id;
+var _forTrack0 = ($index, $item) => $item.provider_id;
 function SuggestionMovieAskMeComponent_For_6_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275domElementStart(0, "cam-ds-checkbox-container", 4);
+    \u0275\u0275domElementStart(0, "cam-ds-checkbox-container", 5);
     \u0275\u0275domListener("change", function SuggestionMovieAskMeComponent_For_6_Template_cam_ds_checkbox_container_change_0_listener($event) {
       const p_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.toggleService(p_r2.id, $event));
+      return \u0275\u0275resetView(ctx_r2.toggleService(p_r2.provider_id, $event));
     });
     \u0275\u0275domElement(1, "cam-ds-provider");
     \u0275\u0275domElementEnd();
@@ -206,9 +149,9 @@ function SuggestionMovieAskMeComponent_For_6_Template(rf, ctx) {
   if (rf & 2) {
     const p_r2 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext();
-    \u0275\u0275attribute("aria-label", p_r2.name)("aria-checked", ctx_r2.isSelectedService(p_r2.id));
+    \u0275\u0275attribute("tabindex", 0)("aria-label", p_r2.provider_name)("aria-checked", ctx_r2.isSelectedService(p_r2.provider_id));
     \u0275\u0275advance();
-    \u0275\u0275attribute("src", p_r2.src)("alt", p_r2.alt);
+    \u0275\u0275attribute("src", p_r2.logo_path)("alt", p_r2.provider_name);
   }
 }
 function SuggestionMovieAskMeComponent_ForEmpty_7_Template(rf, ctx) {
@@ -221,11 +164,11 @@ function SuggestionMovieAskMeComponent_ForEmpty_7_Template(rf, ctx) {
 function SuggestionMovieAskMeComponent_For_14_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
-    \u0275\u0275domElementStart(0, "cam-ds-checkbox-container", 4);
+    \u0275\u0275domElementStart(0, "cam-ds-checkbox-container", 5);
     \u0275\u0275domListener("change", function SuggestionMovieAskMeComponent_For_14_Template_cam_ds_checkbox_container_change_0_listener($event) {
       const g_r5 = \u0275\u0275restoreView(_r4).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.toggleGenre(g_r5, $event));
+      return \u0275\u0275resetView(ctx_r2.toggleGenre(g_r5.id, $event));
     });
     \u0275\u0275text(1);
     \u0275\u0275domElementEnd();
@@ -233,9 +176,9 @@ function SuggestionMovieAskMeComponent_For_14_Template(rf, ctx) {
   if (rf & 2) {
     const g_r5 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext();
-    \u0275\u0275attribute("aria-label", g_r5)("aria-checked", ctx_r2.isSelectedGenre(g_r5));
+    \u0275\u0275attribute("tabindex", 0)("aria-label", g_r5.name)("aria-checked", ctx_r2.isSelectedGenre(g_r5.id));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1(" ", g_r5, " ");
+    \u0275\u0275textInterpolate1(" ", g_r5.name, " ");
   }
 }
 function SuggestionMovieAskMeComponent_ForEmpty_15_Template(rf, ctx) {
@@ -245,19 +188,11 @@ function SuggestionMovieAskMeComponent_ForEmpty_15_Template(rf, ctx) {
     \u0275\u0275domElementEnd();
   }
 }
-var MOCK_PROVIDERS = [
-  { id: 1, src: "/logo-netflix.svg", alt: "Netflix", name: "Netflix" },
-  { id: 2, src: "/logo-disney.svg", alt: "Disney+", name: "Disney+" },
-  { id: 3, src: "/logo-prime.svg", alt: "Prime Video", name: "Prime Video" },
-  { id: 4, src: "/logo-hbo.svg", alt: "HBO Max", name: "HBO Max" }
-];
-var MOCK_GENRES = [
-  "Horror",
-  "Comedy"
-];
 var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
+  tmdbService = inject(TMDBService);
+  tmdbSearchService = inject(TmdbSearchService);
   // signal that holds the array of providers (mocked for now)
-  providers = signal(MOCK_PROVIDERS, ...ngDevMode ? [{ debugName: "providers" }] : []);
+  providers = this.tmdbService.providers;
   // writable signal that holds the set of selected provider ids
   selectedProviders = signal(/* @__PURE__ */ new Set(), ...ngDevMode ? [{ debugName: "selectedProviders" }] : []);
   // derived/computed signal showing how many are selected
@@ -277,34 +212,44 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
     this.selectedProviders.set(next);
     return;
   }
-  // signal that holds the array of genres (mocked for now)
-  genres = signal(MOCK_GENRES, ...ngDevMode ? [{ debugName: "genres" }] : []);
+  // signal that holds the array of genres
+  genres = this.tmdbService.genres;
   // writable signal that holds the set of selected genre ids
   selectedGenres = signal(/* @__PURE__ */ new Set(), ...ngDevMode ? [{ debugName: "selectedGenres" }] : []);
+  selectedGenresMap = computed(() => {
+    const selected = /* @__PURE__ */ new Map();
+    this.selectedGenres().forEach((id) => selected.set(id, true));
+    return selected;
+  }, ...ngDevMode ? [{ debugName: "selectedGenresMap" }] : []);
   // derived/computed signal showing how many are selected
   selectedCountGenres = computed(() => this.selectedGenres().size, ...ngDevMode ? [{ debugName: "selectedCountGenres" }] : []);
   // helper used from the template
-  isSelectedGenre(genre) {
-    return this.selectedGenres().has(genre);
+  isSelectedGenre(genreId) {
+    return this.selectedGenres().has(genreId);
   }
   // toggle selection — update the signal immutably by creating a new Set
-  toggleGenre(genre, el) {
+  toggleGenre(genreId, el) {
     const hasChecked = el.detail?.checked;
     const next = new Set(this.selectedGenres());
     if (hasChecked)
-      next.add(genre);
+      next.add(genreId);
     else
-      next.delete(genre);
+      next.delete(genreId);
     this.selectedGenres.set(next);
     return;
   }
-  search() {
-    console.log(this.selectedProviders(), this.selectedGenres());
+  async search() {
+    const result = await this.tmdbService.discover({
+      providers: Array.from(this.selectedProviders()),
+      genres: Array.from(this.selectedGenres())
+    });
+    this.tmdbSearchService.setSearchResult(result);
+    this.tmdbSearchService.goToResult();
   }
   static \u0275fac = function SuggestionMovieAskMeComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _SuggestionMovieAskMeComponent)();
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SuggestionMovieAskMeComponent, selectors: [["app-services"]], decls: 18, vars: 4, consts: [["level", "2"], [1, "providers"], [1, "genres"], [3, "click"], [3, "change"]], template: function SuggestionMovieAskMeComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SuggestionMovieAskMeComponent, selectors: [["app-services"]], decls: 18, vars: 4, consts: [["level", "2"], [1, "providers"], ["role", "checkbox"], [1, "genres"], [3, "click"], ["role", "checkbox", 3, "change"]], template: function SuggestionMovieAskMeComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275domElementStart(0, "cam-ds-heading", 0);
       \u0275\u0275text(1, "Choose a Service");
@@ -313,7 +258,7 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
       \u0275\u0275text(3);
       \u0275\u0275domElementEnd();
       \u0275\u0275domElementStart(4, "div", 1);
-      \u0275\u0275repeaterCreate(5, SuggestionMovieAskMeComponent_For_6_Template, 2, 4, "cam-ds-checkbox-container", null, _forTrack0, false, SuggestionMovieAskMeComponent_ForEmpty_7_Template, 2, 0, "p");
+      \u0275\u0275repeaterCreate(5, SuggestionMovieAskMeComponent_For_6_Template, 2, 5, "cam-ds-checkbox-container", 2, _forTrack0, false, SuggestionMovieAskMeComponent_ForEmpty_7_Template, 2, 0, "p");
       \u0275\u0275domElementEnd();
       \u0275\u0275domElementStart(8, "cam-ds-heading", 0);
       \u0275\u0275text(9, "Choose a Genre");
@@ -321,10 +266,10 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
       \u0275\u0275domElementStart(10, "p");
       \u0275\u0275text(11);
       \u0275\u0275domElementEnd();
-      \u0275\u0275domElementStart(12, "div", 2);
-      \u0275\u0275repeaterCreate(13, SuggestionMovieAskMeComponent_For_14_Template, 2, 3, "cam-ds-checkbox-container", null, \u0275\u0275repeaterTrackByIdentity, false, SuggestionMovieAskMeComponent_ForEmpty_15_Template, 2, 0, "p");
+      \u0275\u0275domElementStart(12, "div", 3);
+      \u0275\u0275repeaterCreate(13, SuggestionMovieAskMeComponent_For_14_Template, 2, 4, "cam-ds-checkbox-container", 2, \u0275\u0275repeaterTrackByIdentity, false, SuggestionMovieAskMeComponent_ForEmpty_15_Template, 2, 0, "p");
       \u0275\u0275domElementEnd();
-      \u0275\u0275domElementStart(16, "cam-ds-button", 3);
+      \u0275\u0275domElementStart(16, "cam-ds-button", 4);
       \u0275\u0275domListener("click", function SuggestionMovieAskMeComponent_Template_cam_ds_button_click_16_listener() {
         return ctx.search();
       });
@@ -352,12 +297,14 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
     <p>Selezionati: {{ selectedCountProviders() }}</p>
 
     <div class="providers">
-      @for (p of providers(); track p.id) {
+      @for (p of providers(); track p.provider_id) {
         <cam-ds-checkbox-container
-          (change)="toggleService(p.id, $event)"
-          [attr.aria-label]="p.name"
-          [attr.aria-checked]="isSelectedService(p.id)">
-          <cam-ds-provider [attr.src]="p.src" [attr.alt]="p.alt"></cam-ds-provider>
+          (change)="toggleService(p.provider_id, $event)"
+          role="checkbox"
+          [attr.tabindex]="0"
+          [attr.aria-label]="p.provider_name"
+          [attr.aria-checked]="isSelectedService(p.provider_id)">
+          <cam-ds-provider [attr.src]="p.logo_path" [attr.alt]="p.provider_name"></cam-ds-provider>
         </cam-ds-checkbox-container>
       } @empty {
         <p>Nessun provider disponibile</p>
@@ -371,10 +318,12 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
         <div class="genres">
           @for (g of genres(); track g) {
             <cam-ds-checkbox-container
-              (change)="toggleGenre(g, $event)"
-              [attr.aria-label]="g"
-              [attr.aria-checked]="isSelectedGenre(g)">
-             {{g}}
+              (change)="toggleGenre(g.id, $event)"
+              role="checkbox"
+  [attr.tabindex]="0"
+              [attr.aria-label]="g.name"
+              [attr.aria-checked]="isSelectedGenre(g.id)">
+             {{g.name}}
             </cam-ds-checkbox-container>
           } @empty {
             <p>Nessun provider disponibile</p>
@@ -386,9 +335,9 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
   }], null, null);
 })();
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SuggestionMovieAskMeComponent, { className: "SuggestionMovieAskMeComponent", filePath: "src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/suggestion-movie-ask-me.component.ts", lineNumber: 72 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SuggestionMovieAskMeComponent, { className: "SuggestionMovieAskMeComponent", filePath: "src/app/pages/suggestion/suggestion-movie/suggestion-movie-ask-me/suggestion-movie-ask-me.component.ts", lineNumber: 59 });
 })();
 export {
   SuggestionMovieAskMeComponent
 };
-//# sourceMappingURL=chunk-YWJA3A33.js.map
+//# sourceMappingURL=chunk-OPGN2RFR.js.map

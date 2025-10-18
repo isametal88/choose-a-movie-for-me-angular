@@ -1,4 +1,4 @@
-import "./chunk-VUJOFXKG.js";
+import "./chunk-CZJLB7T5.js";
 
 // src/app/pages/suggestion/suggestion-movie/suggestion-movie.routes.ts
 var routes = [
@@ -8,15 +8,15 @@ var routes = [
       {
         path: "",
         pathMatch: "full",
-        loadComponent: () => import("./chunk-KI5AGRT2.js").then((m) => m.SuggestionMovieModeComponent)
+        loadComponent: () => import("./chunk-THZLVQVV.js").then((m) => m.SuggestionMovieModeComponent)
       },
       {
         path: "surprise-me",
-        loadChildren: () => import("./chunk-PCARDHZ7.js").then((m) => m.routes)
+        loadChildren: () => import("./chunk-MQTV3TWJ.js").then((m) => m.routes)
       },
       {
         path: "ask-me",
-        loadChildren: () => import("./chunk-737NL7W4.js").then((m) => m.routes)
+        loadChildren: () => import("./chunk-BWM66HR6.js").then((m) => m.routes)
       },
       {
         path: "**",
@@ -28,4 +28,4 @@ var routes = [
 export {
   routes
 };
-//# sourceMappingURL=chunk-LRYIPHW6.js.map
+//# sourceMappingURL=chunk-BKGISGUC.js.map

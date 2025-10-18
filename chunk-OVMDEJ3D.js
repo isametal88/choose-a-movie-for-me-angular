@@ -1,4 +1,4 @@
-import "./chunk-VUJOFXKG.js";
+import "./chunk-CZJLB7T5.js";
 
 // src/app/pages/suggestion/suggestion.routes.ts
 var routes = [
@@ -8,12 +8,12 @@ var routes = [
       {
         path: "",
         pathMatch: "full",
-        loadComponent: () => import("./chunk-7CB5GUF2.js").then((m) => m.SuggestionMediaComponent)
+        loadComponent: () => import("./chunk-HY3MZF63.js").then((m) => m.SuggestionMediaComponent)
       },
       {
         path: "movie",
         //pathMatch: 'full',
-        loadChildren: () => import("./chunk-LRYIPHW6.js").then((m) => m.routes)
+        loadChildren: () => import("./chunk-BKGISGUC.js").then((m) => m.routes)
       },
       {
         path: "**",
@@ -30,4 +30,4 @@ var routes = [
 export {
   routes
 };
-//# sourceMappingURL=chunk-6MOGUKYO.js.map
+//# sourceMappingURL=chunk-OVMDEJ3D.js.map

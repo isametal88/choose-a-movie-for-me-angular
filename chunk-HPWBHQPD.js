@@ -1,17 +1,33 @@
 import {
+  TMDBService,
+  TmdbSearchService
+} from "./chunk-MWXV3S6X.js";
+import "./chunk-EWKMVYH6.js";
+import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   setClassMetadata,
   ɵsetClassDebugInfo,
   ɵɵdefineComponent,
   ɵɵdomElementEnd,
   ɵɵdomElementStart,
   ɵɵtext
-} from "./chunk-LP3XZL4R.js";
-import "./chunk-VUJOFXKG.js";
+} from "./chunk-XDCJZM2Q.js";
+import "./chunk-CZJLB7T5.js";
 
 // src/app/pages/suggestion/suggestion-movie/suggestion-movie-surprise-me/suggestion-movie-surprise-me.component.ts
 var SuggestionMovieSurpriseMeComponent = class _SuggestionMovieSurpriseMeComponent {
+  tmdbService = inject(TMDBService);
+  tmdbSearchService = inject(TmdbSearchService);
+  ngOnInit() {
+    this.search();
+  }
+  async search() {
+    const result = await this.tmdbService.discoverWide();
+    this.tmdbSearchService.setSearchResult(result, "surprise-me");
+    this.tmdbSearchService.goToRandomResult();
+  }
   static \u0275fac = function SuggestionMovieSurpriseMeComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _SuggestionMovieSurpriseMeComponent)();
   };
@@ -30,9 +46,9 @@ var SuggestionMovieSurpriseMeComponent = class _SuggestionMovieSurpriseMeCompone
   }], null, null);
 })();
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SuggestionMovieSurpriseMeComponent, { className: "SuggestionMovieSurpriseMeComponent", filePath: "src/app/pages/suggestion/suggestion-movie/suggestion-movie-surprise-me/suggestion-movie-surprise-me.component.ts", lineNumber: 10 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SuggestionMovieSurpriseMeComponent, { className: "SuggestionMovieSurpriseMeComponent", filePath: "src/app/pages/suggestion/suggestion-movie/suggestion-movie-surprise-me/suggestion-movie-surprise-me.component.ts", lineNumber: 12 });
 })();
 export {
   SuggestionMovieSurpriseMeComponent
 };
-//# sourceMappingURL=chunk-CDH376HB.js.map
+//# sourceMappingURL=chunk-HPWBHQPD.js.map

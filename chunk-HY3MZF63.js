@@ -1,8 +1,8 @@
+import "./chunk-FMZO32X5.js";
+import "./chunk-XCLE2RQI.js";
 import {
   RouterLink
-} from "./chunk-7VYWG626.js";
-import "./chunk-6V7WYHJC.js";
-import "./chunk-DNPXSVUU.js";
+} from "./chunk-EWKMVYH6.js";
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   ChangeDetectionStrategy,
@@ -16,8 +16,8 @@ import {
   ɵɵproperty,
   ɵɵpureFunction0,
   ɵɵtext
-} from "./chunk-LP3XZL4R.js";
-import "./chunk-VUJOFXKG.js";
+} from "./chunk-XDCJZM2Q.js";
+import "./chunk-CZJLB7T5.js";
 
 // src/app/pages/suggestion/suggestion-media/suggestion-media.component.ts
 var _c0 = () => ["movie"];
@@ -65,4 +65,4 @@ var SuggestionMediaComponent = class _SuggestionMediaComponent {
 export {
   SuggestionMediaComponent
 };
-//# sourceMappingURL=chunk-7CB5GUF2.js.map
+//# sourceMappingURL=chunk-HY3MZF63.js.map
