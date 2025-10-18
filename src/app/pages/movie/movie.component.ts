@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, CUSTOM_ELEMENTS_SCHEMA, ElementRef, inject, Pipe, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cast, Crew, VideoType } from 'choose-a-movie-for-me-data-source';
 import 'choose-a-movie-for-me-ds/availability';
 import 'choose-a-movie-for-me-ds/billing-type';
@@ -10,6 +10,7 @@ import 'choose-a-movie-for-me-ds/people-list';
 import 'choose-a-movie-for-me-ds/person';
 import 'choose-a-movie-for-me-ds/provider';
 import 'choose-a-movie-for-me-ds/youtube-player';
+import { TmdbSearchService } from '../../services/tmdb.search.service';
 import { MovieWithExtras, TMDBService } from '../../services/tmdb.service';
 
 @Pipe({ name: 'posterPath' })
@@ -58,10 +59,13 @@ export class ProviderLogoPathPipe {
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MovieComponent {
+
   elementRef = inject(ElementRef)
   tmdbService = inject(TMDBService);
+  tmdbSearchService = inject(TmdbSearchService);
 
   activatedRoute = inject(ActivatedRoute);
+  router = inject(Router);
   loading = signal(false);
   movieId = signal<number>(0);
   errorMessage = signal<string>('');
@@ -108,6 +112,18 @@ export class MovieComponent {
       this.loading.set(false);
     }
   }
+
+  nextResult() {
+    this.tmdbSearchService.getAnotherResult();
+}
+goHome() {
+this.router.navigate(['/']);
+}
+async goToSimilar() {
+  const similar = await this.tmdbService.findSimilar(this.movieId())
+  this.tmdbSearchService.setSearchResult(similar);
+  this.tmdbSearchService.goToRandomResult();
+}
 
 }
 

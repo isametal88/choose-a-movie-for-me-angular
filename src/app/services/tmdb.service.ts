@@ -57,13 +57,22 @@ export class TMDBService {
     })) || [])
   }
 
-  async discover(query: { providers: number[], genres: number[] }): Promise<TMDBResponse<Movie>> {
+  async discover(query?: { providers: number[], genres: number[] }): Promise<TMDBResponse<Movie>> {
     return await this.tmdb.movies.discoverMovies({
-      withGenres: query.genres.join('|'),
-      withWatchProviders: query.providers.join('|'),
+      withGenres: query?.genres.join('|'),
+      withWatchProviders: query?.providers.join('|'),
       sortBy: 'popularity.desc',
       voteAverageGte: 7.5,
       watchRegion: this.region().iso_3166_1
+    });
+  }
+
+  async discoverWide(): Promise<TMDBResponse<Movie>> {
+    return await this.tmdb.movies.discoverMovies({
+      voteAverageGte: 5,
+      withWatchProviders: this.providers().map(p => p.provider_id).join('|'),
+      watchRegion: this.region().iso_3166_1,
+      
     });
   }
 
@@ -102,6 +111,10 @@ export class TMDBService {
     if (!logo_path) return null;
     const config: TMDBConfigurationResponse = await this.tmdb.configuration.getConfiguration();
     return config.images.secure_base_url + config.images.logo_sizes[0] + logo_path;
+  }
+
+  async findSimilar(id: number): Promise<TMDBResponse<Movie>> {
+    return await this.tmdb.movies.getMovieRecommendations(id);
   }
 }
 
