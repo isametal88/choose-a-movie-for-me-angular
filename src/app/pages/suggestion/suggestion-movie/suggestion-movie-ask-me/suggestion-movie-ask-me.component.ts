@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, signal } from '@angular/core';
 import 'choose-a-movie-for-me-ds/button';
 import 'choose-a-movie-for-me-ds/checkbox-container';
@@ -10,7 +10,7 @@ import { TMDBService } from '../../../../services/tmdb.service';
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   template: `
     <cam-ds-heading level="2">Choose a Service</cam-ds-heading>
 
