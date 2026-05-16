@@ -2,7 +2,7 @@ import "./chunk-FMZO32X5.js";
 import "./chunk-XCLE2RQI.js";
 import {
   RouterLink
-} from "./chunk-EWKMVYH6.js";
+} from "./chunk-3AWSOUXS.js";
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   ChangeDetectionStrategy,
@@ -16,7 +16,7 @@ import {
   ɵɵproperty,
   ɵɵpureFunction0,
   ɵɵtext
-} from "./chunk-XDCJZM2Q.js";
+} from "./chunk-XMVZVPUM.js";
 import "./chunk-CZJLB7T5.js";
 
 // src/app/pages/suggestion/suggestion-movie/suggestion-movie-mode/suggestion-movie-mode.component.ts
@@ -65,4 +65,4 @@ var SuggestionMovieModeComponent = class _SuggestionMovieModeComponent {
 export {
   SuggestionMovieModeComponent
 };
-//# sourceMappingURL=chunk-THZLVQVV.js.map
+//# sourceMappingURL=chunk-XM6TBIGT.js.map

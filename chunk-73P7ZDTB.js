@@ -4,10 +4,8 @@ import "./chunk-XCLE2RQI.js";
 import {
   TMDBService,
   TmdbSearchService
-} from "./chunk-MWXV3S6X.js";
-import {
-  CommonModule
-} from "./chunk-EWKMVYH6.js";
+} from "./chunk-2NDTIRSB.js";
+import "./chunk-3AWSOUXS.js";
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   ChangeDetectionStrategy,
@@ -33,7 +31,7 @@ import {
   ɵɵrestoreView,
   ɵɵtext,
   ɵɵtextInterpolate1
-} from "./chunk-XDCJZM2Q.js";
+} from "./chunk-XMVZVPUM.js";
 import "./chunk-CZJLB7T5.js";
 
 // node_modules/choose-a-movie-for-me-ds/dist/checkboxContainer.js
@@ -194,9 +192,15 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
   // signal that holds the array of providers (mocked for now)
   providers = this.tmdbService.providers;
   // writable signal that holds the set of selected provider ids
-  selectedProviders = signal(/* @__PURE__ */ new Set(), ...ngDevMode ? [{ debugName: "selectedProviders" }] : []);
+  selectedProviders = signal(/* @__PURE__ */ new Set(), ...ngDevMode ? [{ debugName: "selectedProviders" }] : (
+    /* istanbul ignore next */
+    []
+  ));
   // derived/computed signal showing how many are selected
-  selectedCountProviders = computed(() => this.selectedProviders().size, ...ngDevMode ? [{ debugName: "selectedCountProviders" }] : []);
+  selectedCountProviders = computed(() => this.selectedProviders().size, ...ngDevMode ? [{ debugName: "selectedCountProviders" }] : (
+    /* istanbul ignore next */
+    []
+  ));
   // helper used from the template
   isSelectedService(id) {
     return this.selectedProviders().has(id);
@@ -215,14 +219,23 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
   // signal that holds the array of genres
   genres = this.tmdbService.genres;
   // writable signal that holds the set of selected genre ids
-  selectedGenres = signal(/* @__PURE__ */ new Set(), ...ngDevMode ? [{ debugName: "selectedGenres" }] : []);
+  selectedGenres = signal(/* @__PURE__ */ new Set(), ...ngDevMode ? [{ debugName: "selectedGenres" }] : (
+    /* istanbul ignore next */
+    []
+  ));
   selectedGenresMap = computed(() => {
     const selected = /* @__PURE__ */ new Map();
     this.selectedGenres().forEach((id) => selected.set(id, true));
     return selected;
-  }, ...ngDevMode ? [{ debugName: "selectedGenresMap" }] : []);
+  }, ...ngDevMode ? [{ debugName: "selectedGenresMap" }] : (
+    /* istanbul ignore next */
+    []
+  ));
   // derived/computed signal showing how many are selected
-  selectedCountGenres = computed(() => this.selectedGenres().size, ...ngDevMode ? [{ debugName: "selectedCountGenres" }] : []);
+  selectedCountGenres = computed(() => this.selectedGenres().size, ...ngDevMode ? [{ debugName: "selectedCountGenres" }] : (
+    /* istanbul ignore next */
+    []
+  ));
   // helper used from the template
   isSelectedGenre(genreId) {
     return this.selectedGenres().has(genreId);
@@ -286,12 +299,12 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
       \u0275\u0275advance(2);
       \u0275\u0275repeater(ctx.genres());
     }
-  }, dependencies: [CommonModule], styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=suggestion-movie-ask-me.component.css.map */"], changeDetection: 0 });
+  }, styles: ["\n[_nghost-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=suggestion-movie-ask-me.component.css.map */"], changeDetection: 0 });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(SuggestionMovieAskMeComponent, [{
     type: Component,
-    args: [{ selector: "app-services", standalone: true, imports: [CommonModule], template: `
+    args: [{ selector: "app-services", standalone: true, imports: [], template: `
     <cam-ds-heading level="2">Choose a Service</cam-ds-heading>
 
     <p>Selezionati: {{ selectedCountProviders() }}</p>
@@ -340,4 +353,4 @@ var SuggestionMovieAskMeComponent = class _SuggestionMovieAskMeComponent {
 export {
   SuggestionMovieAskMeComponent
 };
-//# sourceMappingURL=chunk-OPGN2RFR.js.map
+//# sourceMappingURL=chunk-73P7ZDTB.js.map

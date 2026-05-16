@@ -4,10 +4,10 @@ import "./chunk-CZJLB7T5.js";
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-3DYK3EZA.js").then((m) => m.MovieComponent)
+    loadComponent: () => import("./chunk-BLEQ62IZ.js").then((m) => m.MovieComponent)
   }
 ];
 export {
   routes
 };
-//# sourceMappingURL=chunk-XF55XXTJ.js.map
+//# sourceMappingURL=chunk-QNKWWJVQ.js.map

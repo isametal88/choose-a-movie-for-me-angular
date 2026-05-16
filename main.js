@@ -3,7 +3,7 @@ import {
   bootstrapApplication,
   provideRouter,
   registerLocaleData
-} from "./chunk-EWKMVYH6.js";
+} from "./chunk-3AWSOUXS.js";
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
@@ -15,10 +15,17 @@ import {
   ɵɵelement,
   ɵɵelementEnd,
   ɵɵelementStart
-} from "./chunk-XDCJZM2Q.js";
+} from "./chunk-XMVZVPUM.js";
 import "./chunk-CZJLB7T5.js";
 
 // node_modules/@angular/common/locales/it.js
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.dev/license
+ */
 var u = void 0;
 function plural(val) {
   const n = val, i = Math.floor(Math.abs(val)), v = val.toString().replace(/^[^.]*\.?/, "").length, e3 = parseInt(val.toString().replace(/^[^e]*(e([-+]?\d+))?/, "$2")) || 0;
@@ -35,20 +42,20 @@ var routes = [
   {
     path: "",
     pathMatch: "full",
-    loadComponent: () => import("./chunk-QDTMTIYC.js").then((m) => m.ModeComponent)
+    loadComponent: () => import("./chunk-7ROIILEU.js").then((m) => m.ModeComponent)
   },
   {
     path: "suggestion",
-    loadChildren: () => import("./chunk-OVMDEJ3D.js").then((m) => m.routes)
+    loadChildren: () => import("./chunk-XZESLN44.js").then((m) => m.routes)
   },
   {
     path: "find",
     pathMatch: "full",
-    loadComponent: () => import("./chunk-TVYJ4CJW.js").then((m) => m.FindComponent)
+    loadComponent: () => import("./chunk-CQ5VVTI5.js").then((m) => m.FindComponent)
   },
   {
     path: "movie",
-    loadChildren: () => import("./chunk-XF55XXTJ.js").then((m) => m.routes)
+    loadChildren: () => import("./chunk-QNKWWJVQ.js").then((m) => m.routes)
   }
 ];
 
@@ -424,15 +431,4 @@ var AppComponent = class _AppComponent {
 
 // src/main.ts
 bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
-/*! Bundled license information:
-
-@angular/common/locales/it.js:
-  (**
-   * @license
-   * Copyright Google LLC All Rights Reserved.
-   *
-   * Use of this source code is governed by an MIT-style license that can be
-   * found in the LICENSE file at https://angular.dev/license
-   *)
-*/
 //# sourceMappingURL=main.js.map

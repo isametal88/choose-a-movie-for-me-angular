@@ -11,12 +11,12 @@ import {
   TMDBService,
   TmdbSearchService,
   VideoType
-} from "./chunk-MWXV3S6X.js";
+} from "./chunk-2NDTIRSB.js";
 import {
   ActivatedRoute,
   AsyncPipe,
   Router
-} from "./chunk-EWKMVYH6.js";
+} from "./chunk-3AWSOUXS.js";
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   ChangeDetectionStrategy,
@@ -48,7 +48,7 @@ import {
   ɵɵstyleProp,
   ɵɵtext,
   ɵɵtextInterpolate
-} from "./chunk-XDCJZM2Q.js";
+} from "./chunk-XMVZVPUM.js";
 import "./chunk-CZJLB7T5.js";
 
 // node_modules/choose-a-movie-for-me-ds/dist/availability.js
@@ -1436,19 +1436,49 @@ var MovieComponent = class _MovieComponent {
   tmdbSearchService = inject(TmdbSearchService);
   activatedRoute = inject(ActivatedRoute);
   router = inject(Router);
-  loading = signal(false, ...ngDevMode ? [{ debugName: "loading" }] : []);
-  movieId = signal(0, ...ngDevMode ? [{ debugName: "movieId" }] : []);
-  errorMessage = signal("", ...ngDevMode ? [{ debugName: "errorMessage" }] : []);
-  movie = signal(null, ...ngDevMode ? [{ debugName: "movie" }] : []);
-  movieGenres = computed(() => this.movie()?.genres.map((g) => g.name).join(", "), ...ngDevMode ? [{ debugName: "movieGenres" }] : []);
-  movieRuntime = computed(() => this.movie()?.runtime + " min", ...ngDevMode ? [{ debugName: "movieRuntime" }] : []);
-  moviePoster = computed(() => this.tmdbService.getPosterUrl(this.movie()?.poster_path), ...ngDevMode ? [{ debugName: "moviePoster" }] : []);
-  movieTrailerId = computed(() => this.movie()?.videos?.results.find((video) => video.type === VideoType.Trailer)?.key, ...ngDevMode ? [{ debugName: "movieTrailerId" }] : []);
+  loading = signal(false, ...ngDevMode ? [{ debugName: "loading" }] : (
+    /* istanbul ignore next */
+    []
+  ));
+  movieId = signal(0, ...ngDevMode ? [{ debugName: "movieId" }] : (
+    /* istanbul ignore next */
+    []
+  ));
+  errorMessage = signal("", ...ngDevMode ? [{ debugName: "errorMessage" }] : (
+    /* istanbul ignore next */
+    []
+  ));
+  movie = signal(null, ...ngDevMode ? [{ debugName: "movie" }] : (
+    /* istanbul ignore next */
+    []
+  ));
+  movieGenres = computed(() => this.movie()?.genres.map((g) => g.name).join(", "), ...ngDevMode ? [{ debugName: "movieGenres" }] : (
+    /* istanbul ignore next */
+    []
+  ));
+  movieRuntime = computed(() => this.movie()?.runtime + " min", ...ngDevMode ? [{ debugName: "movieRuntime" }] : (
+    /* istanbul ignore next */
+    []
+  ));
+  moviePoster = computed(() => this.tmdbService.getPosterUrl(this.movie()?.poster_path), ...ngDevMode ? [{ debugName: "moviePoster" }] : (
+    /* istanbul ignore next */
+    []
+  ));
+  movieTrailerId = computed(() => this.movie()?.videos?.results.find((video) => video.type === VideoType.Trailer)?.key, ...ngDevMode ? [{ debugName: "movieTrailerId" }] : (
+    /* istanbul ignore next */
+    []
+  ));
   backdropImage = computed(() => {
     const path = this.movie()?.backdrop_path;
     return path ? this.tmdbService.getBackdropUrl(path) : null;
-  }, ...ngDevMode ? [{ debugName: "backdropImage" }] : []);
-  region = signal("IT", ...ngDevMode ? [{ debugName: "region" }] : []);
+  }, ...ngDevMode ? [{ debugName: "backdropImage" }] : (
+    /* istanbul ignore next */
+    []
+  ));
+  region = signal("IT", ...ngDevMode ? [{ debugName: "region" }] : (
+    /* istanbul ignore next */
+    []
+  ));
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params) => {
       const movieId = +params["id"];
@@ -1518,7 +1548,7 @@ var MovieComponent = class _MovieComponent {
       \u0275\u0275advance(2);
       \u0275\u0275conditional(ctx.loading() ? 2 : ctx.errorMessage() ? 3 : ctx.movieId() ? 4 : -1);
     }
-  }, dependencies: [AsyncPipe, PosterPathPipe, CastCutterPipe, CrewSorterCutterPipe, ProviderLogoPathPipe], styles: ['\n\n[_nghost-%COMP%] {\n  display: block;\n  height: calc(100% - 48px);\n}\n.movie-container[_ngcontent-%COMP%] {\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-image: var(--bg-url);\n  background-size: cover;\n  min-height: 0;\n  position: relative;\n}\n.movie-container[_ngcontent-%COMP%]::before {\n  content: "";\n  position: absolute;\n  inset: 0;\n  background-color: rgba(0, 0, 0, 0.8);\n  z-index: 0;\n}\n.movie-container[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  position: relative;\n  z-index: 1;\n}\n.movie-content[_ngcontent-%COMP%] {\n  display: flex;\n  flex: 1 1 0%;\n  min-height: 0;\n  height: 100%;\n  width: 100%;\n  max-width: 100%;\n}\n.loader-container[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n@media (max-width: 600px) {\n  .movie-content[_ngcontent-%COMP%] {\n    min-height: 0;\n    height: auto;\n    flex: 1;\n    min-height: auto;\n    height: auto;\n    flex-direction: column;\n  }\n  .first[_ngcontent-%COMP%], \n   .second[_ngcontent-%COMP%], \n   .third[_ngcontent-%COMP%] {\n    width: 100%;\n    max-width: 100%;\n  }\n}\n/*# sourceMappingURL=movie.component.css.map */'], changeDetection: 0 });
+  }, dependencies: [AsyncPipe, PosterPathPipe, CastCutterPipe, CrewSorterCutterPipe, ProviderLogoPathPipe], styles: ['\n[_nghost-%COMP%] {\n  display: block;\n  height: calc(100% - 48px);\n}\n.movie-container[_ngcontent-%COMP%] {\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-image: var(--bg-url);\n  background-size: cover;\n  min-height: 0;\n  position: relative;\n}\n.movie-container[_ngcontent-%COMP%]::before {\n  content: "";\n  position: absolute;\n  inset: 0;\n  background-color: rgba(0, 0, 0, 0.8);\n  z-index: 0;\n}\n.movie-container[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  position: relative;\n  z-index: 1;\n}\n.movie-content[_ngcontent-%COMP%] {\n  display: flex;\n  flex: 1 1 0%;\n  min-height: 0;\n  height: 100%;\n  width: 100%;\n  max-width: 100%;\n}\n.loader-container[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n@media (max-width: 600px) {\n  .movie-content[_ngcontent-%COMP%] {\n    min-height: 0;\n    height: auto;\n    flex: 1;\n    min-height: auto;\n    height: auto;\n    flex-direction: column;\n  }\n  .first[_ngcontent-%COMP%], \n   .second[_ngcontent-%COMP%], \n   .third[_ngcontent-%COMP%] {\n    width: 100%;\n    max-width: 100%;\n  }\n}\n/*# sourceMappingURL=movie.component.css.map */'], changeDetection: 0 });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MovieComponent, [{
@@ -1603,4 +1633,4 @@ export {
   PosterPathPipe,
   ProviderLogoPathPipe
 };
-//# sourceMappingURL=chunk-3DYK3EZA.js.map
+//# sourceMappingURL=chunk-BLEQ62IZ.js.map

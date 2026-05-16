@@ -7,7 +7,7 @@ import {
   ɵɵdomElementEnd,
   ɵɵdomElementStart,
   ɵɵtext
-} from "./chunk-XDCJZM2Q.js";
+} from "./chunk-XMVZVPUM.js";
 import "./chunk-CZJLB7T5.js";
 
 // src/app/pages/find/find.component.ts
@@ -21,7 +21,7 @@ var FindComponent = class _FindComponent {
       \u0275\u0275text(1, "find works!");
       \u0275\u0275domElementEnd();
     }
-  }, styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=find.component.css.map */"], changeDetection: 0 });
+  }, styles: ["\n[_nghost-%COMP%] {\n  display: block;\n}\n/*# sourceMappingURL=find.component.css.map */"], changeDetection: 0 });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(FindComponent, [{
@@ -35,4 +35,4 @@ var FindComponent = class _FindComponent {
 export {
   FindComponent
 };
-//# sourceMappingURL=chunk-TVYJ4CJW.js.map
+//# sourceMappingURL=chunk-CQ5VVTI5.js.map

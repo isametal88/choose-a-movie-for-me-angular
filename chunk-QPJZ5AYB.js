@@ -8,15 +8,15 @@ var routes = [
       {
         path: "",
         pathMatch: "full",
-        loadComponent: () => import("./chunk-THZLVQVV.js").then((m) => m.SuggestionMovieModeComponent)
+        loadComponent: () => import("./chunk-XM6TBIGT.js").then((m) => m.SuggestionMovieModeComponent)
       },
       {
         path: "surprise-me",
-        loadChildren: () => import("./chunk-MQTV3TWJ.js").then((m) => m.routes)
+        loadChildren: () => import("./chunk-2TO26FDZ.js").then((m) => m.routes)
       },
       {
         path: "ask-me",
-        loadChildren: () => import("./chunk-BWM66HR6.js").then((m) => m.routes)
+        loadChildren: () => import("./chunk-3CO3R7AI.js").then((m) => m.routes)
       },
       {
         path: "**",
@@ -28,4 +28,4 @@ var routes = [
 export {
   routes
 };
-//# sourceMappingURL=chunk-BKGISGUC.js.map
+//# sourceMappingURL=chunk-QPJZ5AYB.js.map
